@@ -10,3 +10,8 @@ def favicon():
 @frontend.route('/')
 def main():
     return jsonify({"code": 77})
+
+
+@frontend.route('/simple_chat')
+def simple_chat():
+    return render_template('simple_chat.html')

@@ -53,3 +53,9 @@ def broadcast_message(message):
 def send_room_message(message):
     print(message)
     emit('api_response', {'data': message['data']}, room=message['room'])
+
+
+@socket_io.on('broadcast_room_message', namespace=namespace)
+def broadcast_room_message(message):
+    print(message)
+    emit('api_response', {'data': message['data']}, room=message['room'], broadcast=True)
