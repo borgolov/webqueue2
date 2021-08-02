@@ -7,7 +7,7 @@ from .api import restful_api
 
 __all__ = ['create_app']
 
-BLUEPRINTS = (frontend, restful_api, )
+BLUEPRINTS = (frontend, restful_api,)
 
 
 def create_app(config=None, app_name='app', blueprints=None):

@@ -10,13 +10,13 @@ namespace = '/queue'
 def connect():
     current_app.logger.info('connect client: ' + str(request.remote_addr))
     current_app.logger.info('client sid: ' + request.sid)
-    emit('api_response', {'data': request.sid})
+    emit('uid_client', {'uid': request.sid})
 
 
 @socket_io.on('join', namespace=namespace)
 def join(message):
-    print(message['room'])
-    join_room(message['room'])
+    print(message)
+    join_room(message)
     emit('api_response', {'data': rooms()})
 
 
@@ -40,15 +40,16 @@ def disconnect():
 
 @socket_io.on('event_message', namespace=namespace)
 def test_message(message):
-    print(message['data'])
-    emit('api_response', {'data': message['data']})
+    print(message)
+    emit('api_response', {'data': message})
 
 
 @socket_io.on('broadcast_message', namespace=namespace)
 def broadcast_message(message):
-    emit('api_response', {'data': message['data']}, broadcast=True)
+    emit('api_response', {'data': message, 'uid': request.sid}, broadcast=True)
 
 
 @socket_io.on('send_room_message', namespace=namespace)
 def send_room_message(message):
+    print(message)
     emit('api_response', {'data': message['data']}, room=message['room'])

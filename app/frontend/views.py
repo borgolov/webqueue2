@@ -9,4 +9,4 @@ def favicon():
 
 @frontend.route('/')
 def main():
-    return jsonify({"code": 200})
+    return jsonify({"code": 77})
