@@ -302,3 +302,7 @@
 2021-08-02 13:23:17,877 INFO: client sid: lHk4iFyBR0Y_sU10AAA1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
 2021-08-02 13:23:18,276 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
 2021-08-02 13:23:18,277 INFO: client sid: 1cLnKvy8Yzlcf-lTAAA3 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
+2021-08-02 13:52:21,193 INFO: connect client: 192.168.99.250 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
+2021-08-02 13:52:21,195 INFO: client sid: GlU2zUmU6DAyFMOoAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
+2021-08-02 13:52:30,387 INFO: connect client: 192.168.99.250 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
+2021-08-02 13:52:30,387 INFO: client sid: dqpd_PXPW4F-dCXaAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
