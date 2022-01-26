@@ -9,7 +9,7 @@ from app.models import *
 
 class ServerTimeResource(Resource):
     def get(self):
-        current_time = datetime.datetime.now()
+        current_time = datetime.now()
         return current_time.strftime("%m.%d.%Y, %H:%M:%S")
 
 

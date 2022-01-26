@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template
-from .extensions import db, migrate, ma, socket_io
+from .extensions import db, migrate, ma, socket_io, login_manager, adm, my_sessions
 from app import methods, models
 from .frontend import frontend
+from .admin import admin_bp, MyAdminIndexView
 from .api import restful_api
+from flask_socketio import SocketIO
+from .methods import MyCustomNamespace
+from flask_bcrypt import generate_password_hash
 
 __all__ = ['create_app']
 
-BLUEPRINTS = (frontend, restful_api,)
+BLUEPRINTS = (frontend, restful_api, admin_bp,)
 
 
 def create_app(config=None, app_name='app', blueprints=None):
     """Create a Flask app."""
-
     app = Flask(app_name)
     configure_app(app, config)
     configure_extensions(app)
@@ -20,7 +23,6 @@ def create_app(config=None, app_name='app', blueprints=None):
     configure_logging(app)
     configure_template_filters(app)
     configure_error_handlers(app)
-
     return app
 
 
@@ -38,7 +40,13 @@ def configure_extensions(app):
     db.init_app(app)
     migrate.init_app(app, db)
     ma.init_app(app)
-    socket_io.init_app(app)
+    login_manager.init_app(app)
+    adm.init_app(app, index_view=MyAdminIndexView())
+    my_sessions.init_app(app)
+    with app.app_context():
+        db.create_all()
+        socket_io.init_app(app, logger=True, )
+        socket_io.on_namespace(MyCustomNamespace(namespace='/queue'))
 
 
 def register_blueprints(app, blueprints):

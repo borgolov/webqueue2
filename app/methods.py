@@ -1,61 +1,53 @@
 from flask import current_app, request, copy_current_request_context
-from flask_socketio import emit, join_room, leave_room, \
-    close_room, rooms, disconnect
+from flask_login import current_user
+from flask_socketio import emit, join_room, leave_room, close_room, rooms, disconnect, Namespace
 from app import socket_io
-
-namespace = '/queue'
-
-
-@socket_io.on('connect', namespace=namespace)
-def connect():
-    current_app.logger.info('connect client: ' + str(request.remote_addr))
-    current_app.logger.info('client sid: ' + request.sid)
-    emit('uid_client', {'uid': request.sid})
+from app.models import *
+from .queue import *
 
 
-@socket_io.on('join', namespace=namespace)
-def join(message):
-    print(message)
-    join_room(message)
-    emit('api_response', {'data': rooms()})
+class MyCustomNamespace(Namespace):
+    def __init__(self, namespace=None):
+        super(MyCustomNamespace, self).__init__(namespace)
+        self.queues = list()
+        locations = db.session.query(Location).all()
+        for locate in locations:
+            queue = Queue(locate)
+            self.queues.append(queue)
 
+    def on_connect(self):
+        current_app.logger.info(f'connect client: {request.sid} , {str(request.remote_addr)}.')
+        resp = {"room_id": "guest"}
+        if current_user.is_authenticated:
+            if current_user.has_role('superuser'):
+                resp["room_id"] = 'superuser'
+                resp["user"] = current_user.username
+                join_room(resp["room_id"], request.sid)
+                emit('settings', resp)
+                return
+            worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
+            if worker:
+                for place in self.queues:
+                    if place.id == worker.location_operator.id:
+                        if place.join_in_place(worker.id, request.sid):
+                            resp["room_id"] = place.name
+                            resp["user"] = current_user.username
+                            join_room(resp["room_id"], request.sid)
+                            emit('settings', resp)
+                        else:
+                            self.on_disconnect()
 
-@socket_io.on('disconnect_request', namespace=namespace)
-def disconnect_request():
-    @copy_current_request_context
-    def can_disconnect():
-        disconnect()
+    def on_disconnect(self):
+        if current_user.is_authenticated:
+            worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
+            if worker:
+                for place in self.queues:
+                    if place.id == worker.location_operator.id:
+                        place.leave_from_place(request.sid)
+        disconnect(sid=request.sid, namespace=self)
 
-    emit('api_response',
-         {'data': 'Disconnected!'},
-         callback=can_disconnect)
+    def on_my_event(self, data):
+        emit('for_testing', data)
 
-    print('Disconnect Client sid: ', request.sid)
-
-
-@socket_io.on('disconnect', namespace=namespace)
-def disconnect():
-    print('Client disconnected', request.sid)
-
-
-@socket_io.on('event_message', namespace=namespace)
-def test_message(message):
-    print(message)
-    emit('api_response', {'data': message})
-
-
-@socket_io.on('broadcast_message', namespace=namespace)
-def broadcast_message(message):
-    emit('api_response', {'data': message, 'uid': request.sid}, broadcast=True)
-
-
-@socket_io.on('send_room_message', namespace=namespace)
-def send_room_message(message):
-    print(message)
-    emit('api_response', {'data': message['data']}, room=message['room'])
-
-
-@socket_io.on('broadcast_room_message', namespace=namespace)
-def broadcast_room_message(message):
-    print(message)
-    emit('api_response', {'data': message['data']}, room=message['room'], broadcast=True)
+    def on_room_message(self, data):
+        emit('for_testing', data, room=data['room'], broadcast=True)

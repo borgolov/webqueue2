@@ -3,227 +3,119 @@ from dataclasses import dataclass
 from sqlalchemy import sql, Column, CHAR, String, Integer, Time, Boolean, DateTime, ForeignKey
 from sqlalchemy.orm import relationship, backref
 from flask_bcrypt import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+from flask_security import RoleMixin
 from app import db
 
-SCHEMA = 'public'
 
-client_services = db.Table(
-    'client_services',
-    db.Column('clients', Integer, ForeignKey(SCHEMA + '.clients.id'), comment='Идентификатор клинета'),
-    db.Column('services', Integer, ForeignKey(SCHEMA + '.services.id'), comment='Идентификатор услуги'),
-    db.Column('priority', Integer, ForeignKey(SCHEMA + '.priority.id'), comment='Идентификатор приоритета')
-)
-
-servicezone_services = db.Table(
-    'servicezone_services',
-    db.Column('service_zone', Integer, ForeignKey(SCHEMA + '.service_zone.id'),
-              comment='Идентификатор зона обслуживания'),
-    db.Column('services', Integer, ForeignKey(SCHEMA + '.services.id'), comment='Идентификатор услуги'),
-)
-
-informationtable_services = db.Table(
-    'informationtable_services',
-    db.Column('information_table', Integer, ForeignKey(SCHEMA + '.information_table.id'),
-              comment='Идентификатор информационного табло'),
-    db.Column('services', Integer, ForeignKey(SCHEMA + '.services.id'), comment='Идентификатор услуги'),
+roles_users = db.Table(
+    'roles_users',
+    db.Column('user_id', db.Integer(), db.ForeignKey('user.id')),
+    db.Column('role_id', db.Integer(), db.ForeignKey('role.id'))
 )
 
 
-class Organization(db.Model):
-    __tablename__ = 'organization'
-    __table_args__ = {
-        'comment': 'Организации',
-        'schema': SCHEMA,
-    }
+class Role(db.Model, RoleMixin):
+    __tablename__ = 'role'
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(80), unique=True)
+    description = db.Column(db.String(255))
 
-    id = Column('id', Integer, primary_key=True, autoincrement=True)
-    name = Column('name', String(250), nullable=False)
-    shot_name = Column('shot_name', String(50), nullable=False)
-    contacts = Column('contacts', String(50), nullable=False)
-
-    def __repr__(self):
-        return self.order
+    def __str__(self):
+        return self.name
 
 
-class Services(db.Model):
-    __tablename__ = 'services'
-    __table_args__ = {
-        'comment': 'Улсуги',
-        'schema': SCHEMA,
-    }
+class User(db.Model, UserMixin):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False, unique=True)
+    active = db.Column(db.Boolean, nullable=False, default=True)
+    username = db.Column(db.String(100))
+    password_hash = db.Column(db.String(100), nullable=False)
+    roles = db.relationship('Role', secondary=roles_users, backref=db.backref('user', lazy='dynamic'))
 
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(100), nullable=False)
-    description = Column(String(350), nullable=True)
-    prefix = Column(CHAR(1), nullable=False)
-    start_num = Column(Integer, nullable=False)
-    timetable = Column(Integer, db.ForeignKey(SCHEMA + '.time_table.id'), index=True, nullable=False)
-    limit = Column(Integer, nullable=False, default=0, comment='Лимит талонов в день')
-    view_display = Column(Boolean, nullable=False, default=True, comment='Статус отображения на табло')
-    status = Column(Boolean, nullable=False, default=True, comment='Статус')
-    template_sound_alert = Column(Integer, db.ForeignKey(SCHEMA + '.template_sound_alert.id'), index=True,
-                                  nullable=False, comment='шаблон звукового сопровождения')
-    comment = Column(String(200))
+    @property
+    def is_authenticated(self):
+        return True
 
-    def as_dict(self):
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
 
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
-class Priority(db.Model):
-    __tablename__ = 'priority'
-    __table_args__ = {
-        'comment': 'Приоритеты',
-        'schema': SCHEMA,
-    }
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(100), nullable=False)
+    def has_role(self, *args):
+        return set(args).issubset({role.name for role in self.roles})
+
+    @property
+    def is_active(self):
+        # override UserMixin property which always returns true
+        # return the value of the active column instead
+        return self.active
+
+    def __str__(self):
+        return self.username
 
 
-class TimeTable(db.Model):
-    __tablename__ = 'time_table'
-    __table_args__ = {
-        'comment': 'Расписание',
-        'schema': SCHEMA,
-    }
-
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(100), nullable=False)
+ServiceLocation = db.Table('service_location',
+    db.Column('service', db.Integer, db.ForeignKey('service.id'), primary_key=True),
+    db.Column('location', db.Integer, db.ForeignKey('location.id'), primary_key=True)
+)
 
 
-class TimeOut(db.Model):
-    __tablename__ = 'time_out'
-    __table_args__ = {
-        'comment': 'Перерыв',
-        'schema': SCHEMA,
-    }
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(200), nullable=False, comment='наименование')
-    start_time = Column(Time, nullable=False)
-    stop_time = Column(Time, nullable=False)
+class Location(db.Model):
+    __tablename__ = 'location'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    services = relationship('Service', secondary=ServiceLocation, lazy='subquery', backref=db.backref('services', lazy=True))
+
+    def __str__(self):
+        return self.name
 
 
-class TimeWeek(db.Model):
-    __tablename__ = 'time_week'
-    __table_args__ = {
-        'comment': 'Время работы',
-        'schema': SCHEMA,
-    }
+class DeviceType(db.Model):
+    __tablename__ = 'device_type'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
 
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    time_table = Column(Integer, db.ForeignKey(SCHEMA + '.time_table.id'), nullable=False)
-    day_week = Column(Integer, nullable=False, index=True)
-    start_time = Column(Time, nullable=False)
-    stop_time = Column(Time, nullable=False)
-    time_out = Column(Integer, db.ForeignKey(SCHEMA + '.time_out.id'))
-    timetables = relationship('Timetable', backref=backref('time_week'))
+    def __str__(self):
+        return self.name
 
 
-class ServiceZone(db.Model):
-    __tablename__ = 'service_zone'
-    __table_args__ = {
-        'comment': 'Зоны обслуживания',
-        'schema': SCHEMA,
-    }
+class Service(db.Model):
+    __tablename__ = 'service'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    prefix = Column(String, nullable=True)
 
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(200), nullable=False, comment='наименование')
-
-
-class TypeClient(db.Model):
-    __tablename__ = 'type_client'
-    __table_args__ = {
-        'comment': 'тип клинета',
-        'schema': SCHEMA,
-    }
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(200), nullable=False, comment='наименование')
+    def __str__(self):
+        return self.name
 
 
-class Clients(db.Model):
-    __tablename__ = 'clients'
-    __table_args__ = {
-        'comment': 'Клинеты',
-        'schema': SCHEMA,
-    }
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(200), nullable=False, comment='наименование')
-    mac_address = Column(String(17), nullable=False, comment='Мак адрес', unique=True,)
-    service_zone = Column(Integer, db.ForeignKey(SCHEMA + '.service_zone.id'), nullable=False,
-                          comment='Зона обслуживаня')
-    type_client = Column(Integer, db.ForeignKey(SCHEMA + '.type_client.id'), nullable=False,
-                         comment='тип клиента')
+class Device(db.Model):
+    __tablename__ = 'device'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    type = Column(Integer, ForeignKey('device_type.id', ondelete='CASCADE'), nullable=True)
+    location = Column(Integer, ForeignKey('location.id', ondelete='CASCADE'), primary_key=True, nullable=True)
+
+    type_device = relationship('DeviceType')
+    location_device = relationship('Location')
+
+    def __str__(self):
+        return self.name
 
 
-class Users(db.Model):
-    __tablename__ = 'users'
-    __table_args__ = {
-        'comment': 'Пользователи',
-        'schema': SCHEMA,
-    }
+class Operator(db.Model):
+    __tablename__ = 'operator'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    user = Column(Integer, ForeignKey('user.id', ondelete='CASCADE'), nullable=False, unique=True)
+    location = Column(Integer, ForeignKey('location.id', ondelete='CASCADE'), nullable=False)
+    user_operator = relationship('User')
+    location_operator = relationship('Location')
 
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    username = Column(String(120), unique=True, comment='Имя пользователя')
-    password = Column(String(120), nullable=False, comment='Пароль')
-    status = Column(Boolean, default=False, comment='Статус')
-    date_creation = Column(DateTime, server_default=sql.func.now(), comment='Дата создания')
+    def __str__(self):
+        return self.name
 
-    def set_password(self, p):
-        self.password = generate_password_hash(p)
-
-    def check_password(self, p):
-        return check_password_hash(self.password.encode('utf-8'), p)
-
-
-class TemplateSoundAlert(db.Model):
-    __tablename__ = 'template_sound_alert'
-    __table_args__ = {
-        'comment': 'шаблон звукового сопровождения',
-        'schema': SCHEMA,
-    }
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(200), nullable=False, comment='наименование')
-
-
-class TypeNews(db.Model):
-    __tablename__ = 'type_news'
-    __table_args__ = {
-        'comment': 'тип новостей',
-        'schema': SCHEMA,
-    }
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(200), nullable=False, comment='наименование')
-
-
-class News(db.Model):
-    __tablename__ = 'news_event'
-    __table_args__ = {
-        'comment': 'новости, реклама',
-        'schema': SCHEMA,
-    }
-    id = Column('id', Integer, primary_key=True, autoincrement=True)
-    type_news = Column(Integer, db.ForeignKey(SCHEMA + '.type_news.id'), nullable=False,
-                       comment='Тип новости(видео, картинка, бегущая строка)')
-    head = Column('head', String(100), nullable=False)
-    service_zone = Column(Integer, db.ForeignKey(SCHEMA + '.service_zone.id'), nullable=False,
-                          comment='Зона обслуживаня')
-    text = Column('text', String(250), nullable=False)
-
-    def __repr__(self):
-        return self.order
-
-
-class InformationTable(db.Model):
-    __tablename__ = 'information_table'
-    __table_args__ = {
-        'comment': 'Информационное табло',
-        'schema': SCHEMA,
-    }
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    name = Column(String(200), nullable=False, comment='наименование')
-    service_zone = Column(Integer, db.ForeignKey(SCHEMA + '.service_zone.id'), nullable=False,
-                          comment='Зона обслуживаня')
-    view_list = Column(Boolean, nullable=False, default=False, comment='список ожидающих')
-    news_event = Column(Integer, db.ForeignKey(SCHEMA + '.type_news.id'), nullable=False,
-                        comment='Тип новости(видео, картинка, бегущая строка)')
-    count_windows = Column(Integer, nullable=False, default=1, comment='количество отображаемых окон')
-    mac_address = Column(String(48), nullable=False, comment='Мак адрес', unique=True,)

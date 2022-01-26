@@ -1,308 +1,680 @@
-2021-07-30 16:28:29,690 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:28:29,691 INFO: client sid: pzCphs0gUGBM0AM-AAAB [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:29:05,922 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:29:05,924 INFO: client sid: uQ6fP9EoDKqLl6sKAAAD [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:29:32,512 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:29:32,513 INFO: client sid: HtJdPx7pKE80hYzUAAAF [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:30:15,311 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:30:15,313 INFO: client sid: QNQ0IV8aEOpEz_5FAAAH [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:30:34,142 INFO: connect client: 192.168.0.49 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:30:34,144 INFO: client sid: 2huUzUXbY6wVFvhkAAAJ [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:31:20,067 INFO: connect client: 192.168.0.49 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:31:20,067 INFO: client sid: L1QjaipvtRCnNe1kAAAL [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:32:07,497 INFO: connect client: 192.168.0.49 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:32:07,498 INFO: client sid: xaK9NBZSnLd3oxElAAAP [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:32:32,006 INFO: connect client: 192.168.0.49 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:32:32,008 INFO: client sid: OQ45tXRuI69OIBIMAAAB [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:32:56,602 INFO: connect client: 192.168.0.49 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:32:56,603 INFO: client sid: h-sBrR_Tsk_TP1pBAAAD [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:33:13,902 INFO: connect client: 192.168.0.49 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:33:13,902 INFO: client sid: cvIr0F5Dhsa7pUK1AAAB [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:33:23,453 INFO: connect client: 192.168.0.49 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:33:23,454 INFO: client sid: _cWmpWO8XmrGsmDRAAAD [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:35:21,555 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:35:21,556 INFO: client sid: 690qLLVTD3JLkKBUAAAB [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:35:25,283 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:35:25,284 INFO: client sid: uLs2bA77mLVDJdrkAAAD [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:35:33,241 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:35:33,242 INFO: client sid: yMfPBIlzbyyTCb4uAAAF [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:37:32,903 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:37:32,904 INFO: client sid: ak6phDNNcbDNoVpbAAAH [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-07-30 16:38:29,632 INFO: connect client: 127.0.0.1 [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:11]
-2021-07-30 16:38:29,633 INFO: client sid: M30c3A6D6--1MWymAAAB [in /mnt/14F114B93AEA64FB/project/pythonProject/app/methods.py:12]
-2021-08-02 09:25:07,385 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:25:07,386 INFO: client sid: hbGvi_laM6F0RmKrAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:25:26,452 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:25:26,455 INFO: client sid: VRV8LDenuOVztnZaAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:26:46,510 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:26:46,511 INFO: client sid: MV5UU_pKM0DGzswLAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:28:53,079 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:28:53,080 INFO: client sid: ipGT1dB_DJqQK0UmAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:30:13,445 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:30:13,445 INFO: client sid: KwBeVP6wBRDjV_x5AAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:30:16,053 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:30:16,054 INFO: client sid: tH75JMrwBJwS_xFVAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:30:33,978 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:30:33,978 INFO: client sid: 8Z-Hw1X08s8xoWaeAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:32:08,012 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:32:08,013 INFO: client sid: HW1A4hNxuIPnsYzaAAAN [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:33:54,342 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:33:54,342 INFO: client sid: FK41rJ65j10lNgRWAAAP [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:35:13,738 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:35:13,740 INFO: client sid: 6-bsNOfHvGfuNMNHAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:38:20,481 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:38:20,482 INFO: client sid: S5U_5N0KbHe0ZVtTAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:39:59,008 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:39:59,008 INFO: client sid: HOkUffFlnAbX8sDPAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:40:13,528 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:40:13,531 INFO: client sid: ZMTWstxlX6LZCwU2AAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:40:44,879 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:40:44,879 INFO: client sid: 3s7HMcdKe6oITm6jAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:41:11,048 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:41:11,051 INFO: client sid: rLisMFfAXneLfEFBAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:42:38,183 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:42:38,184 INFO: client sid: 5Ba464TVusBHkTdbAAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:42:42,406 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:42:42,407 INFO: client sid: BAi0iYlyNzF4grTfAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:43:50,119 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:43:50,120 INFO: client sid: yARSmw4yxLiByhlIAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:43:51,905 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:43:51,906 INFO: client sid: jEEiR1IZjSUEUxfzAAAN [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:44:37,350 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:44:37,351 INFO: client sid: yw4QfX6cWKw3D1PSAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:44:38,445 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:44:38,446 INFO: client sid: 7jWf2Fw9Nx90RMRuAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:45:34,670 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:45:34,670 INFO: client sid: RfBBPclxQO38jw9hAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:45:36,097 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:45:36,098 INFO: client sid: WB0qvbgPzIBwiExUAAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:47:26,318 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:47:26,318 INFO: client sid: ITuY7bKdxluT-D98AAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 09:47:27,692 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 09:47:27,693 INFO: client sid: odjqlCoDLA0Z6ntSAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:25:37,048 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:25:37,049 INFO: client sid: n1n2Jf3h9Gf0QMpHAAAN [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:26:06,104 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:26:06,105 INFO: client sid: uKyxM_hYml9sM6jvAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:26:06,451 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:26:06,452 INFO: client sid: iTjAcJyDFiomSQ7PAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:30:32,440 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:30:32,441 INFO: client sid: nMPRAda7OhH8RwydAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:30:33,179 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:30:33,180 INFO: client sid: q3wMbODd6JOxogszAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:31:17,643 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:31:17,643 INFO: client sid: uPLTzisnjV2doXVRAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:31:19,002 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:31:19,003 INFO: client sid: cMn-41UZhd-1N-ipAAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:34:08,867 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:34:08,868 INFO: client sid: QOg8exq-NUZLyMwiAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:34:10,230 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:34:10,231 INFO: client sid: z_k1GDvds-DJIwBlAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:34:53,444 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:34:53,447 INFO: client sid: HP_2tAGG5XM5cot0AAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:34:53,774 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:34:53,775 INFO: client sid: 22VjwZ40-54Hf7WoAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:34:57,443 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:34:57,445 INFO: client sid: T-PYaACvGxbPGONtAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:34:58,122 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:34:58,125 INFO: client sid: cFHocCV3Xk-jj-0uAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:41:32,725 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:41:32,725 INFO: client sid: 9eE8XtQbKDiC5UytAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:41:33,746 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:41:33,748 INFO: client sid: APMTtYcEWOFgx5NPAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:41:47,710 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:41:47,713 INFO: client sid: 8kFJ4vEadSzwZyChAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:41:49,977 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:41:49,978 INFO: client sid: WtF5C9IRoEHCEWbOAAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:43:54,785 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:43:54,785 INFO: client sid: zMKy-sMyUkVzyarLAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:43:55,883 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:43:55,884 INFO: client sid: -RUEJgyg-rfcE_FKAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:45:38,708 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:45:38,710 INFO: client sid: hKxg59WjDtVFLGV2AAAC [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:45:38,735 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:45:38,742 INFO: client sid: 8PpVGCZvbde8Oyt4AAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:50:57,123 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:50:57,123 INFO: client sid: Hp_TdbslqpmFJt-uAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:50:58,323 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:50:58,324 INFO: client sid: cymxm6whWWjPla9FAAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:51:14,878 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:51:14,880 INFO: client sid: V8x9YB32lTFO09e6AAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:53:22,945 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:53:22,946 INFO: client sid: kqCxG8pXecI-38oLAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:55:01,465 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:55:01,467 INFO: client sid: 9G89a_b8YKkEzYcCAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:55:28,680 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:55:28,681 INFO: client sid: cyyLzVedKt1KE_asAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:56:17,461 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:56:17,463 INFO: client sid: x6FBoWzL47rqdoUnAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:56:34,749 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:56:34,750 INFO: client sid: XJVqHRygouo-zSn9AAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:58:58,930 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:58:58,931 INFO: client sid: ZNfU-hzcFe31YmejAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 10:59:00,713 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 10:59:00,714 INFO: client sid: GQoZzVFhr9vH65HVAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:00:40,470 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:00:40,476 INFO: client sid: 2FLP3uZ0D9ljuY0SAAAC [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:00:40,491 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:00:40,492 INFO: client sid: vICsFfSD9iCzd7dsAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:01:47,317 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:01:47,317 INFO: client sid: 8t6NjwkyPJCnSu_JAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:01:50,829 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:01:50,831 INFO: client sid: aUxVyeXOQy-3_XQ_AAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:03:23,703 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:03:23,703 INFO: client sid: V7D1cMYmeNQvxt5PAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:03:24,852 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:03:24,854 INFO: client sid: FWaDjEG8aVIq_tkWAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:03:42,499 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:03:42,502 INFO: client sid: jJF0QTGBieBlYPdHAAAN [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:04:06,928 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:04:06,930 INFO: client sid: mdeCDdCEG_JYcOxsAAAP [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:05:00,581 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:05:00,584 INFO: client sid: irP-2RWdp-ikaHlfAAAR [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:05:02,984 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:05:02,985 INFO: client sid: MQu_CQrZkZFDTnobAAAT [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:09:58,767 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:09:58,768 INFO: client sid: Tt5iizlTCqJ1POoXAAAV [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:09:59,472 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:09:59,474 INFO: client sid: KH7wdjw-X1Ggiz8dAAAX [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:17:58,442 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:17:58,444 INFO: client sid: EBxKOFl3jZuOF-jnAAAC [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:17:58,609 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:17:58,611 INFO: client sid: uvMDUZ-4Wx7MOOZCAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:18:02,693 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:18:02,695 INFO: client sid: 0WSXXF2qM2i8y8bvAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:18:03,382 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:18:03,383 INFO: client sid: uM9ZuPy3NoldweOZAAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:18:37,103 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:18:37,105 INFO: client sid: xSPxaN_XZgxUXVBZAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:19:03,282 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:19:03,283 INFO: client sid: cmqFMaQ0l2E9HquKAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:19:05,983 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:19:05,992 INFO: client sid: uVYJV5D3MBHev1WBAAAN [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:19:29,464 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:19:29,466 INFO: client sid: v8unMgKKYCDBpp0xAAAP [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:19:51,521 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:19:51,522 INFO: client sid: 5vGaM_oWXNHynOqDAAAR [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:19:53,252 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:19:53,253 INFO: client sid: 6XIglmB-QWhjmjRBAAAT [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:21:19,859 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:21:19,860 INFO: client sid: ODCvTfLJozXbDQqdAAAV [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:31:03,913 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:31:03,917 INFO: client sid: 9vVZTNzy5LgOctn5AAAX [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:35:01,946 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:35:01,947 INFO: client sid: h8zsZKR4IXmryoezAAAZ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:36:56,567 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:36:56,569 INFO: client sid: _kKklTN1EEyaZslhAAAb [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:39:12,215 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:39:12,217 INFO: client sid: n6in56Zg8cIxSxjpAAAd [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:40:31,467 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:40:31,467 INFO: client sid: iozg9McKiXDG9qzbAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:40:32,766 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:40:32,769 INFO: client sid: e1X-CvriUg667HvSAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:40:55,018 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:40:55,019 INFO: client sid: LHJglr34aCOD1rpFAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:41:17,647 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:41:17,648 INFO: client sid: uWa9fVu-Jbb2Wu4zAAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:41:41,453 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:41:41,453 INFO: client sid: WL2Sj8pS0tQ5tGAbAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:42:35,849 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:42:35,849 INFO: client sid: b-zu4Z6gHE4C0QfrAAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:44:23,544 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:44:23,545 INFO: client sid: XWh9kubxrYY67RInAAAN [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:44:24,632 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:44:24,632 INFO: client sid: -izL8GCeJ38-vpJzAAAP [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:44:26,763 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:44:26,767 INFO: client sid: 5HWu-lA3iuYnrE7XAAAR [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 11:44:28,043 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 11:44:28,044 INFO: client sid: eM1KRiEPMq5h3UYXAAAT [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 12:28:54,855 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 12:28:54,855 INFO: client sid: DYssqxJ0F76nEm4LAAAV [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 12:35:17,107 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 12:35:17,107 INFO: client sid: ATi2pAjOPqXMNN0LAAAX [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 12:35:26,398 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 12:35:26,400 INFO: client sid: f8m1Z6cW9y_ioNQMAAAZ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 12:35:34,591 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 12:35:34,593 INFO: client sid: fX8FFteF-Y9HMk7-AAAb [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 12:35:35,248 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 12:35:35,249 INFO: client sid: IwzdcoNGdekVfDc4AAAd [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 12:35:36,800 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 12:35:36,801 INFO: client sid: moNFCLNUJh5-x2TZAAAf [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:01:05,820 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:01:05,821 INFO: client sid: u1XECgt9Fjy9GBZ3AAAh [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:01:27,112 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:01:27,112 INFO: client sid: PhsbIJP1GcAcd38wAAAj [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:01:27,317 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:01:27,318 INFO: client sid: TA6Hh9A813Ff-uzfAAAl [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:01:28,119 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:01:28,120 INFO: client sid: Yh5t_yq7UO2t11SQAAAn [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:01:28,743 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:01:28,743 INFO: client sid: xxfEUgtEl7PfLF-UAAAp [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:01:29,892 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:01:29,892 INFO: client sid: MZwMcaYJBxW1VSiJAAAr [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:07:04,439 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:07:04,443 INFO: client sid: K0HzQ0JLwHIYjspxAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:07:04,779 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:07:04,783 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:07:04,791 INFO: client sid: FCdPSKWCXOcl7VFvAAAE [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:07:04,794 INFO: client sid: mpZAwBoGlQRLa1O-AAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:07:09,805 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:07:09,805 INFO: client sid: aJlg23AWsuu4hl-XAAAC [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:07:09,868 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:07:09,871 INFO: client sid: 6Hc7fCcw7N33e7K6AAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:07:11,101 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:07:11,104 INFO: client sid: OrnA1cJtr2bEq5joAAAF [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:10:11,902 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:10:11,903 INFO: client sid: _i_wbmm-uPuAIJaWAAAH [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:10:13,636 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:10:13,637 INFO: client sid: UMzZk_W4sP9hSyBtAAAJ [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:10:14,904 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:10:14,904 INFO: client sid: VpuajhUxbeE62wL6AAAL [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:14:09,023 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:14:09,024 INFO: client sid: B6bJcoBVCXztc9WiAAAN [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:14:26,285 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:14:26,287 INFO: client sid: UkFNAGqfiVY1incpAAAP [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:14:54,071 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:14:54,071 INFO: client sid: WeArbr_OVKbhXkyiAAAR [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:15:21,536 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:15:21,537 INFO: client sid: TYQBTZk-i57IjBjQAAAT [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:16:16,874 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:16:16,874 INFO: client sid: OyssHmBNxu3lk_5SAAAV [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:17:38,590 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:17:38,591 INFO: client sid: 8X4v-qjVTqybn-k_AAAX [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:18:17,039 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:18:17,039 INFO: client sid: t2-4XelLzAI8VEXCAAAb [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:18:17,040 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:18:17,041 INFO: client sid: VMCgFoaQCyFF2VGGAAAc [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:18:17,087 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:18:17,087 INFO: client sid: QrvjCCzwVvVhDcz1AAAd [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:18:18,617 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:18:18,618 INFO: client sid: sEw5VQoqM6DsYNH_AAAf [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:19:07,421 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:19:07,422 INFO: client sid: TBXQRbVnHAUTDAUSAAAh [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:19:07,758 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:19:07,759 INFO: client sid: A_L2Nr6to62Gc2vPAAAj [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:19:39,374 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:19:39,374 INFO: client sid: z7sk2WzYbLBbhgGeAAAl [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:20:10,788 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:20:10,789 INFO: client sid: 0Z44HBl8ESycPO1eAAAn [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:20:11,718 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:20:11,719 INFO: client sid: q3eqVZ3c2QjFy-FFAAAp [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:20:36,988 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:20:36,989 INFO: client sid: NucGX3WiNheVZnM0AAAr [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:20:47,407 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:20:47,408 INFO: client sid: 4VkjihQnrsmkW4V1AAAt [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:21:21,088 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:21:21,088 INFO: client sid: GlnWasRkKm3vtL9QAAAv [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:21:47,169 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:21:47,176 INFO: client sid: bCdURH7FrsHoj_voAAAx [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:23:17,646 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:23:17,647 INFO: client sid: 13XnA7psbGG-1vBZAAA0 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:23:17,877 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:23:17,877 INFO: client sid: lHk4iFyBR0Y_sU10AAA1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:23:18,276 INFO: connect client: 127.0.0.1 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:23:18,277 INFO: client sid: 1cLnKvy8Yzlcf-lTAAA3 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:52:21,193 INFO: connect client: 192.168.99.250 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:52:21,195 INFO: client sid: GlU2zUmU6DAyFMOoAAAB [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
-2021-08-02 13:52:30,387 INFO: connect client: 192.168.99.250 [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:11]
-2021-08-02 13:52:30,387 INFO: client sid: dqpd_PXPW4F-dCXaAAAD [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:12]
+2022-01-09 01:29:06,366 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> found ('C:\\Users\\MYHlejNIK\\Desktop\\develepmets\\webqueue\\app\\templates\\home.html')
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:29:06,378 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:29:07,522 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:29:30,609 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> found ('C:\\Users\\MYHlejNIK\\Desktop\\develepmets\\webqueue\\app\\templates\\home.html')
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:29:30,620 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:29:31,650 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:29:32,458 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:29:33,469 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:29:34,741 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:30:59,455 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\../templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found.
+  The template was looked up from an endpoint that belongs to the blueprint 'frontend'.
+  Maybe you did not place a template in the right folder?
+  See https://flask.palletsprojects.com/blueprints/#templates [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:05,847 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\../templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found.
+  The template was looked up from an endpoint that belongs to the blueprint 'frontend'.
+  Maybe you did not place a template in the right folder?
+  See https://flask.palletsprojects.com/blueprints/#templates [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:13,647 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\./templates
+       -> found ('C:\\Users\\MYHlejNIK\\Desktop\\develepmets\\webqueue\\app\\./templates\\home.html')
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:13,667 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\./templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:22,940 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:/templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found.
+  The template was looked up from an endpoint that belongs to the blueprint 'frontend'.
+  Maybe you did not place a template in the right folder?
+  See https://flask.palletsprojects.com/blueprints/#templates [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:24,690 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:/templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found.
+  The template was looked up from an endpoint that belongs to the blueprint 'frontend'.
+  Maybe you did not place a template in the right folder?
+  See https://flask.palletsprojects.com/blueprints/#templates [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:25,826 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:/templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found.
+  The template was looked up from an endpoint that belongs to the blueprint 'frontend'.
+  Maybe you did not place a template in the right folder?
+  See https://flask.palletsprojects.com/blueprints/#templates [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:26,569 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:/templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found.
+  The template was looked up from an endpoint that belongs to the blueprint 'frontend'.
+  Maybe you did not place a template in the right folder?
+  See https://flask.palletsprojects.com/blueprints/#templates [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:27,240 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:/templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found.
+  The template was looked up from an endpoint that belongs to the blueprint 'frontend'.
+  Maybe you did not place a template in the right folder?
+  See https://flask.palletsprojects.com/blueprints/#templates [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:43,921 INFO: Locating template 'home.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> found ('C:\\Users\\MYHlejNIK\\Desktop\\develepmets\\webqueue\\app\\templates\\home.html')
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:31:43,940 INFO: Locating template 'errors/404.html':
+    1: trying loader of application 'app'
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\templates
+       -> no match
+    2: trying loader of blueprint 'frontend' (app.frontend)
+       class: jinja2.loaders.FileSystemLoader
+       encoding: 'utf-8'
+       followlinks: False
+       searchpath:
+         - C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\templates
+       -> no match
+Error: the template could not be found. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\debughelpers.py:158]
+2022-01-09 01:38:38,152 INFO: connect client: lcGMP-DWDiTRCjeeAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:17]
+2022-01-09 01:48:55,480 INFO: connect client: 6-reOeICkdlca96DAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:17]
+2022-01-09 02:42:56,935 INFO: connect client: PxMJfKQY07RaOhqFAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:42:56,937 INFO: connect client: PxMJfKQY07RaOhqFAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:43:16,622 INFO: connect client: XOzo1lVJC6LgS4wsAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:43:16,623 INFO: connect client: XOzo1lVJC6LgS4wsAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:43:33,137 INFO: connect client: vsHQOs2QzSd0ctzJAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:43:37,391 INFO: connect client: psMDgCi21w1pZYsnAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:44:00,552 INFO: connect client: TvfWOkqKC6Uhl9rqAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:44:01,882 INFO: connect client: KJ_v_V7WLCCOydAfAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:44:12,617 INFO: connect client: 7YUlKlFny5G1iy_tAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:45:12,126 INFO: connect client: XChgRH57_iBKC80RAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-09 02:45:16,594 INFO: connect client: KL71tmotTNEWo7jeAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-15 15:03:43,577 INFO: connect client: BIuC6t0kR8-sPl4NAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-15 15:12:51,619 INFO: connect client: HHvKFKF8tfBT6HmzAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-15 15:13:13,849 INFO: connect client: H_cr_ZG8eKoz5NiLAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-15 15:25:26,656 INFO: connect client: 9ty6f9aZV1AJHArDAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-15 15:25:43,825 INFO: connect client: 28_qSBknvyaWGVcyAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-15 15:30:58,136 INFO: connect client: bt9gKgFx_AvMwmnCAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-15 15:31:46,301 INFO: connect client: iVlqjGVw5S56yY5yAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:21:12,870 INFO: connect client: VgG-UlbDiD_t7l2UAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:24:05,021 INFO: connect client: ucQfaYluW_z9DimGAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:24:59,963 INFO: connect client: PxiMBKWCX9SbtbNTAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:25:03,629 INFO: connect client: jNFJaSN6W6GDfd8CAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:25:14,076 INFO: connect client: TRj0fvux7zaGoEOmAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:28:33,639 INFO: connect client: vE3svy7gLwkcN3POAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:29:34,747 INFO: connect client: 9DOQi8NNoFA0O4CbAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:30:14,663 INFO: connect client: L-TAWtqEB_gpihwEAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:32:21,253 INFO: connect client: Lr-0foQJFtIustwXAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:32:22,620 INFO: connect client: Cx5pli7mp88m1VFZAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:43:22,315 INFO: connect client: ksDV26nIl4cCyDjMAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:46:44,493 INFO: connect client: mZ4X7X_8iw2b4nAcAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:51:03,647 INFO: connect client: r005CqVd3t5tP_RqAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:51:13,420 INFO: connect client: 6bYSVadmGCBoxnWoAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:51:30,242 INFO: connect client: x6RW7UgVfIRVc5EdAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:51:33,854 INFO: connect client: pLsL6jerNEs3vcgwAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:52:36,559 INFO: connect client: oNYePjNC3cIeEhiuAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:53:22,361 INFO: connect client: gbmNuP6i5M2qXyzbAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 21:54:03,006 INFO: connect client: ngXW9QjNCbzHkyJXAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:00:43,422 INFO: connect client: SmV5b21HYYQka51HAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:01:12,192 INFO: connect client: NHzBS8-uYkLyo-okAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:01:21,927 INFO: connect client: Q8jRG60EGi9KAExlAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:02:29,501 INFO: connect client: x75LAHANyVrY56mnAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:02:32,639 INFO: connect client: _Mc_IIrYjeQk33ubAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:02:33,582 INFO: connect client: bMGqtOnc8qYm4F7qAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:02:34,446 INFO: connect client: 4FXzFtcnGGVM62TKAAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:02:35,280 INFO: connect client: orKR84i3aKpk9Yj9AAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:02:37,397 INFO: connect client: zt_7aKZNFWJd1jKmAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:03:07,051 INFO: connect client: LicYAs7THC9EQouyAAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:12:07,068 INFO: connect client: oRmiJrERhf2Soa7mAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:13:35,027 INFO: connect client: -49kCQxXgFI8df5zAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:13:58,848 INFO: connect client: v3d1AAYrb5BTW8DwAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:15:41,280 INFO: connect client: 4f3ks4WwRgK2CpbEAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:15:49,518 INFO: connect client: gBnu9krXZdDF8haoAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:15:52,110 INFO: connect client: -1i_yhObhpNnKNKoAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:16:23,603 INFO: connect client: xZ68oyR79DXdeP8qAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:16:26,817 INFO: connect client: BJ2WgdYR4SH0HlmrAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:16:41,800 INFO: connect client: _QDnRToCT1xjSIzMAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:18:05,761 INFO: connect client: z8yfPGNoU61-4P_GAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:18:05,793 INFO: connect client: z8yfPGNoU61-4P_GAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:18:50,745 INFO: connect client: kkiH-T8EYBex1aWoAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:19:41,977 INFO: connect client: tMFdU_nQDCPN0iXXAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:19:45,665 INFO: connect client: 4QbXAXYfV4r3HmPgAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-18 22:21:07,841 INFO: connect client: rfPMNuj0J13NxC9cAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 12:40:29,346 INFO: connect client: xOUY_yVFJo2ORqMdAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 12:40:33,531 INFO: connect client: eVR1ckGWbUnBwZvVAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 12:43:23,855 INFO: connect client: yL1Ll_smRQk1ODkBAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 12:43:33,964 INFO: connect client: zVlqfUGOeaBrlmbmAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 12:49:34,470 INFO: connect client: 7oKS09-9t3otk_JvAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 12:49:40,344 INFO: connect client: Ilrob_m39HtMJfB2AAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 12:49:43,463 INFO: connect client: WyUDsSNWvHi8NSHlAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 13:57:00,362 INFO: connect client: U8DdN0AZyY4YCW78AAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:18]
+2022-01-22 19:55:22,316 INFO: connect client: odymlEvNoeiFg9auAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 19:55:43,406 INFO: connect client: 800XQx4oKsIz4iw4AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 19:55:48,125 INFO: connect client: LxiBENBmo9IQT7umAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 19:59:04,806 INFO: connect client: G0En33SxaJXTjmBdAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 19:59:21,639 INFO: connect client: L2f439LoJDPn7myaAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:02:24,341 INFO: connect client: e3LS8ekJAUvSUCFWAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:02:27,571 INFO: connect client: Lp2gCsjsSpQUVK1JAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:07:58,270 INFO: connect client: SLecYKLYjxWksQEFAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:08:51,503 INFO: connect client: 5CrVYUb3-AvPF2G8AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:10:20,118 INFO: connect client: 62sarw2tQvC6q4USAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:10:54,975 INFO: connect client: juTyvsC2oddsmU8TAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:11:11,052 INFO: connect client: kCXcbYd2JGSwvAbqAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:11:12,242 INFO: connect client: -We5_LfCupa_J5i1AAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:11:13,238 INFO: connect client: IVb1qLaX8W3yxMcmAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:11:28,316 INFO: connect client: UEbgaoMEM9j7jMU7AAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:11:44,026 INFO: connect client: ND3b6hVvVnaXbupQAAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:16:06,209 INFO: connect client: dYrES5jYly1Yyr3QAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:17:52,468 INFO: connect client: J2ntYcwBWqHAVCk4AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:18:04,787 INFO: connect client: V-PJRR8ABRugD2OZAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:18:16,998 INFO: connect client: IgNKZXvU5pmavFTSAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:18:50,945 INFO: connect client: nK19eRKoVVVCL9qEAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:19:40,651 INFO: connect client: -yr_U2rNR0JpLJmPAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:19:46,102 INFO: connect client: hLV-X5h9BevxNqyzAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:19:49,985 INFO: connect client: HZvdijmVvT4PeTe6AAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:19:51,649 INFO: connect client: r3wM4IFxaeOnCh38AAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:19:52,934 INFO: connect client: TnsrkpHQBwJv33fyAAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:19:54,073 INFO: connect client: FdSItoNzWkIJzYFiAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:19:55,700 INFO: connect client: gQjJQZ3AleG0XXLtAAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:19:56,949 INFO: connect client: 0UnWDqxdIyNbgBDFAAAT , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:20:58,994 INFO: connect client: NdbntctCNvc9mtvnAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:21:08,579 INFO: connect client: hGYvs3vgqGR2X9A3AAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:21:35,563 INFO: connect client: FAwknEvKh8fAgE1JAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:21:54,500 INFO: connect client: O3-f3rUE5nsJSleEAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:22:38,158 INFO: connect client: gWaY_WULCi_SwENRAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:22:44,760 INFO: connect client: UoT5z3zaPu5z9JssAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:22:45,726 INFO: connect client: dmc2jawhaP-mX075AAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:22:46,843 INFO: connect client: VubV7qHZ9-7AjPluAAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:22:47,901 INFO: connect client: mS1cc1ySAu1zcY2tAAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:22:48,785 INFO: connect client: 00t8K9FYmSqmiRQSAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:22:49,539 INFO: connect client: OMK437QafHinZrL8AAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:25:02,319 INFO: connect client: _Xvyy2gDaRxN1qPDAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:27:54,366 INFO: connect client: czH8ZpyPJM6IAQ0vAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:28:24,923 INFO: connect client: kXqRd7-bqqMIsNmiAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:29:03,059 INFO: connect client: etLM270ae6bErEMRAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:29:10,721 INFO: connect client: 5tqfvN3PF0lLyCOwAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:29:50,443 INFO: connect client: 3pb2JI0DdmSecRmsAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:30:09,857 INFO: connect client: l-PDa0iTJgUVxnTXAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:30:12,213 INFO: connect client: M2PRxbh7DknOg-2VAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:30:56,184 INFO: connect client: 9zJO0nTPsy_2v2PiAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:33:08,041 INFO: connect client: NMTrEasamNHclCAuAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:33:18,546 INFO: connect client: ktBbSNDgwtTRmbTeAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:33:45,149 INFO: connect client: a06u6u6SmpyBEj_EAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:33:45,214 INFO: connect client: lwza730aWF2-XME6AAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:35:53,397 INFO: connect client: G17gGTHzXHVpsZ3eAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:35:54,230 INFO: connect client: 6qfdqMclLAdQgENLAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:36:16,993 INFO: connect client: m-XLYT5CMsmzXCuFAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:36:17,209 INFO: connect client: tK-0eYRen5oVBQmLAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:36:23,205 INFO: connect client: RvtTymnf-zobux5QAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:36:24,236 INFO: connect client: I_-7MWkb-eW3ntcvAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:02,417 INFO: connect client: GtRy2mVjMdsEH2KHAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:10,096 INFO: connect client: 5tM-3o5kcSKt4uEwAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:37,858 INFO: connect client: 1_u7MukF1FxfDKQ5AAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:44,033 INFO: connect client: CzGS_Xv_HR-8V-kdAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:44,950 INFO: connect client: CrNW-XwADDsTQ0v9AAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:45,739 INFO: connect client: 8AKREKj11jegPJnWAAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:46,657 INFO: connect client: r5WM9etX-6ruYwO4AAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:47,688 INFO: connect client: 80t-siEKg5ks7VwaAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:48,590 INFO: connect client: ARlPnrrn1FL2Q008AAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:49,755 INFO: connect client: x8cMVJRBIoWch_P-AAAT , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:40:51,900 INFO: connect client: XKiqZvBMdwjAVGoKAAAV , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:43:54,549 INFO: connect client: tXptyvXBpN2NL2BAAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:44:10,470 INFO: connect client: PclwmPHFWX7oF6nMAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:44:22,850 INFO: connect client: wFm4HPk28UdaVxzfAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 20:51:32,122 INFO: connect client: wS_0AMH3hPmfjkYkAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:00:22,298 INFO: connect client: 0VXX5PMQZlj7m_JWAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:02:03,311 INFO: connect client: Ghwvz-WDVbm1CdapAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:02:09,644 INFO: connect client: bAQOLiCkjyul1mR-AAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:02:36,166 INFO: connect client: CUpMwutwNq-bZBkNAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:02:49,972 INFO: connect client: DnNN0toHXSD_InWTAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:03:15,491 INFO: connect client: aej4Bwm3QbYEJCaxAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:03:26,055 INFO: connect client: AcEquz6jcIw5e3IjAAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:03:37,937 INFO: connect client: eENfPy3bJGvYoozvAAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:04:15,630 INFO: connect client: 3WhMIc21_t0EKtukAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:04:36,984 INFO: connect client: DnCZUyeYgz6gsKE0AAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:13:01,306 INFO: connect client: P7WL6O_PwFsW5D00AAAT , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:13:17,330 INFO: connect client: vDBwiRn4Cw7Ydia4AAAV , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:14:24,085 INFO: connect client: 6ugxiAC1gyNGXVvFAAAX , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:14:43,262 INFO: connect client: LXquR3BDHQzwY5iXAAAZ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:14:49,257 INFO: connect client: pLXqTKjJaLjuI1I5AAAb , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:16:25,779 INFO: connect client: UlSfPPXrse-kmpM-AAAd , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:16:50,104 INFO: connect client: zQG-I89_vZ9-_ymdAAAf , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:17:31,153 INFO: connect client: X-FCYGyQtuqvHkmZAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:17:32,388 INFO: connect client: 0ICIEQrxwHobWPflAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:18:17,338 INFO: connect client: 8Of9_e8ijve9kTu8AAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:19:10,045 INFO: connect client: m1ZLMU6CUkB_B5OiAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:19:27,030 INFO: connect client: hvoCVDsL5ca2IBIXAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:18,665 INFO: connect client: 2ALXsCyg-IAgRdhoAAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:33,893 INFO: connect client: oSOHgYs5GqDKQA81AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:33,993 INFO: connect client: kNvwuzItuvtgUukXAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:40,498 INFO: connect client: yXW8k8PDeW3qBLc_AAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:46,747 INFO: connect client: OqzBm9RC3IRS82sSAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:49,345 INFO: connect client: Nsjsc5eRmbledY-6AAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:50,066 INFO: connect client: G9pH3HyuKrR-1dM3AAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:50,523 INFO: connect client: d59Ov1cHEIZPbKTMAAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:51,005 INFO: connect client: vb6EXBIfaHiwRXZeAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:56,060 INFO: connect client: QFK7YN02q2HsFaKmAAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:20:58,020 INFO: connect client: k7nuK3WKHY__oUPwAAAT , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:25:00,049 INFO: connect client: Xdh1rYQba0VEW6NPAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:25:02,238 INFO: connect client: RJdP-3OtnQPRKTNIAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:25:26,568 INFO: connect client: scvoeLMfqOkgz_PmAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:26:44,539 INFO: connect client: liynKY0ADlWAYzoVAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:26:51,596 INFO: connect client: LSvLOKkxZPhHZXlhAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:26:56,851 INFO: connect client: FveAfv__AHuk69QOAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:28:36,013 INFO: connect client: JYXovEgvxELmsD5WAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:28:44,332 INFO: connect client: 0U2AcB3MEBRyk9gwAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:28:53,298 INFO: connect client: XsS1DIWnVhJH2NJcAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:29:04,178 INFO: connect client: iuExJdbKIY7DI0xyAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:30:29,488 INFO: connect client: vsoqTOzL9Pm8dC6HAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:30:34,789 INFO: connect client: na2xWbxbiP06jHwEAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:30:40,772 INFO: connect client: MiFJawv4AIrOoe65AAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:30:57,639 INFO: connect client: yUrTgjrnjb_2VmYKAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:32:31,284 INFO: connect client: ryo3ufJzIodFXbqYAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:33:04,342 INFO: connect client: 9upaNGrXKv2kNsc1AAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:33:21,545 INFO: connect client: 3mxgc9xPaOnHRgpoAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:33:22,557 INFO: connect client: VPNA26INYHRZW9syAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:33:32,832 INFO: connect client: Ckt8aF3wtbPoYtQDAAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:33:43,621 INFO: connect client: yL7S4BEU-gHF57PcAAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:34:28,449 INFO: connect client: jn3b-XcYHmXms-qUAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:35:57,585 INFO: connect client: ICPlShozy_GL_jgFAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:35:57,602 INFO: connect client: xsxtHTwQMi8Me0aqAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:36:24,302 INFO: connect client: iJ2TpMjlcsr4F4kbAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:36:30,080 INFO: connect client: tG-vgEYnsN6l1F8kAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:36:52,205 INFO: connect client: hlX8NUrD3ZNY9cMbAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:37:59,465 INFO: connect client: OThWHO2p2Y9kELVDAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:40:11,449 INFO: connect client: aZP-x-kf9xuxWLBFAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:40:29,818 INFO: connect client: p6ZmDlDBO3B8AtU0AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:40:38,127 INFO: connect client: PHZin1qjQ_dUtg9jAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:40:57,707 INFO: connect client: 7S6fimlZxSSx8DBZAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:41:02,833 INFO: connect client: gfqx4Ffm1uQ-614JAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:41:05,374 INFO: connect client: 6buFU2ECb7uA0IftAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:41:07,183 INFO: connect client: XZwkK4Qmo-2pdApZAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:41:09,275 INFO: connect client: shr2o3qDFvuVjxbcAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:41:10,954 INFO: connect client: U587rsgWUw2cbgT9AAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:41:39,994 INFO: connect client: NLJGAWac6HMOf0O-AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:42:19,285 INFO: connect client: eF6khdiu1myp-jGNAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:43:25,767 INFO: connect client: dfmt7GXsUBtL36PIAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:43:37,971 INFO: connect client: _ZyvC7bVwHIZFwJ9AAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:49:23,946 INFO: connect client: -npxejVVx5jh44c1AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:49:38,708 INFO: connect client: t_oVN6XhlPsVdNKBAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:49:45,049 INFO: connect client: k43rJpkgRLPqJCk6AAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:49:49,997 INFO: connect client: 8RgGeTTl-bW39_zfAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:49:57,744 INFO: connect client: U2IIj0dmRiPXI5B-AAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:50:00,151 INFO: connect client: mI-wnytNGSG1xPIDAAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:51:10,787 INFO: connect client: EXfA71MkWJpMFGUBAAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:51:13,946 INFO: connect client: majA4iVZIWDhcLouAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:51:16,550 INFO: connect client: Ktymir6FYrlIfy24AAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:51:17,889 INFO: connect client: vV8eZm6AvXaVbj4rAAAT , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:51:20,445 INFO: connect client: eqrD1yvWHcjedpPlAAAV , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:51:23,930 INFO: connect client: GK6zTBFMcADhzc6-AAAX , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:51:40,143 INFO: connect client: Bwq6G4CgxbVhzE-aAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:51:52,852 INFO: connect client: FFr5PuYnNv1-uBziAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:52:32,126 INFO: connect client: EZyhIsc7pO4iTsp8AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:52:34,220 INFO: connect client: zxLZSX0vZHqjLAv2AAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:53:08,617 INFO: connect client: pb-xYlSgM9giGi94AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:54:01,279 INFO: connect client: lCPQ7W499Y9tUYn2AAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:54:13,844 INFO: connect client: bSRltxtoOyB5YWh7AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:56:43,215 INFO: connect client: CNn9w1uFWX3VfGONAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:56:46,096 INFO: connect client: IOpE0UdxG_rbBm4WAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:56:51,256 INFO: connect client: 9qhfovJonh0f7v8WAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 21:56:52,923 INFO: connect client: 4LepbQMg2ZgVXM5-AAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:00:59,458 INFO: connect client: WDiT2DUpyVCu-mGMAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:01:00,384 INFO: connect client: AjyB6CUKktiMqqfUAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:01:02,828 INFO: connect client: uvPj7ELTC5qd6stDAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:02:39,973 INFO: connect client: kf4yt-zvWibfLrmYAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:02:45,650 INFO: connect client: NEtX_nZ2RQNadrCGAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:07:04,664 INFO: connect client: 0MaBNz006P8GHggdAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:07:09,602 INFO: connect client: 2vbXJoyI9hF4tEexAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:07:09,612 INFO: connect client: 2vbXJoyI9hF4tEexAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:07:12,389 INFO: connect client: AiKOWxcQcycfj_xRAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:07:12,410 INFO: connect client: AiKOWxcQcycfj_xRAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:07:14,142 INFO: connect client: Hg_VGFE23BBGxBe2AAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:07:14,164 INFO: connect client: Hg_VGFE23BBGxBe2AAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:08:14,645 INFO: connect client: 16xYdRIQN4rB2zgCAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:08:22,155 INFO: connect client: j1up2XTIJEfhIyvwAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:11:42,492 INFO: connect client: FCwZ17R-UJyvkHOrAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:11:47,662 INFO: connect client: pMzO03W_igbyb8zMAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:04,166 INFO: connect client: II9WaJoKqJ4IY29pAAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:13,170 INFO: connect client: sOt_ExxqiOtMtxmeAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:14,068 INFO: connect client: AnLNLJ5lUzfMNJwSAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:14,967 INFO: connect client: C39GUk96Y0CysbG3AAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:29,127 INFO: connect client: TonywhgUScgpBjkVAAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:38,986 INFO: connect client: jp2xgwM9SwPa8iYgAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:44,065 INFO: connect client: FAcu56nehOWjr9BCAAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:50,058 INFO: connect client: Cmzc4FyVcX-1alHXAAAT , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:12:55,307 INFO: connect client: fkLdY8i70Bf7PLUkAAAV , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:13:39,388 INFO: connect client: UDv1RhICgBfELtLAAAAX , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:13:40,613 INFO: connect client: 6jbWOS3GMbg_H4GNAAAZ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:13:42,786 INFO: connect client: _AcYGwtarkMY4NqoAAAb , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:13:46,317 INFO: connect client: 69QDj8uqsey2TiPPAAAd , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:13:47,641 INFO: connect client: y7ePvgm8UsIMLMUXAAAf , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:14:14,131 INFO: connect client: WvNvM6k4vumrBnVnAAAh , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:14:20,743 INFO: connect client: 46XY-jlaHsY1ogEIAAAj , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:14:37,002 INFO: connect client: 8OkOX_4bB3-19oVHAAAl , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:14:49,588 INFO: connect client: J45yz41YyyEnbuoPAAAn , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:15:08,302 INFO: connect client: A3L85M_KQQMMzt6IAAAp , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:15:41,001 INFO: connect client: E6QlBCtkg0_7g_9LAAAr , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:15:58,095 INFO: connect client: eGtG99DN5eltHYgvAAAt , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:18:40,489 INFO: connect client: Bjvnwz4weIBUzFFzAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:19:17,234 INFO: connect client: CCzA7r6Dtrypq1QRAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:21:00,698 INFO: connect client: AjMBnRvJgfntpk8-AAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:21:55,318 INFO: connect client: -sgQKHFSgHtjXvKUAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:24:59,294 INFO: connect client: R1dXXGZPVyLVPEqcAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:27:53,273 INFO: connect client: 2o6aWZ_Rk1RW7GdZAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:29:33,231 INFO: connect client: 7o0FrxFQOFsPLV6aAAAB , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:29:47,440 INFO: connect client: vRDMlx5ErRQrOoQbAAAD , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:30:54,185 INFO: connect client: GOT2RvkZslUjQj_2AAAF , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:30:55,475 INFO: connect client: 7gkhCp7uylRsmP8RAAAH , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:31:21,989 INFO: connect client: nbxb9WCpl4g9xUBxAAAJ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:40:33,190 INFO: connect client: a6XwVGk9GlD5syFMAAAL , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:40:36,221 INFO: connect client: x2vRyCmti1FQmQf1AAAN , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:40:37,265 INFO: connect client: nshc5CjEb81qUdkpAAAP , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:40:38,627 INFO: connect client: iH-yBVctkqf9Q-C-AAAR , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:40:39,976 INFO: connect client: 7IsPGcsDIzNSShNhAAAT , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:40:41,225 INFO: connect client: nj-iezB6cQsGj7QpAAAV , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:41:06,530 INFO: connect client: Jx8ZOjaSMJYweOoNAAAX , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:47:27,842 INFO: connect client: waq3d2LMxkjDz-C5AAAZ , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:47:39,608 INFO: connect client: BIbrOEYdkviRzurPAAAb , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:47:47,191 INFO: connect client: R9jbwivVUk55FkzEAAAd , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:48:03,623 INFO: connect client: FQEJFPiJyTqdpKVPAAAf , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:48:08,344 INFO: connect client: wRbSOpdeO272v_NRAAAh , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:48:31,337 INFO: connect client: a6cphYNX1K3oft0fAAAj , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:49:31,005 INFO: connect client: zfd7UWTjtNoe-l9XAAAl , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-22 22:51:35,059 INFO: connect client: 53DtfLeO__hdN_3mAAAn , 127.0.0.1. [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\methods.py:19]
+2022-01-26 20:36:02,868 ERROR: Exception on /auth [POST] [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask_restful\__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\views.py", line 25, in login
+    login_user(user, False)
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask_login\utils.py", line 170, in login_user
+    session['_user_id'] = user_id
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\sessions.py", line 97, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2022-01-26 20:36:32,645 ERROR: Exception on /auth [POST] [in C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask_restful\__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\app\frontend\views.py", line 25, in login
+    login_user(user, False)
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask_login\utils.py", line 170, in login_user
+    session['_user_id'] = user_id
+  File "C:\Users\MYHlejNIK\Desktop\develepmets\webqueue\venv\lib\site-packages\flask\sessions.py", line 97, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
