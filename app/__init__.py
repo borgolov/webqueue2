@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template
 from .extensions import db, migrate, ma, socket_io, login_manager, adm, my_sessions
-from app import methods, models
+from app import socket, models
 from .frontend import frontend
 from .admin import admin_bp, MyAdminIndexView
 from .api import restful_api
 from flask_socketio import SocketIO
-from .methods import MyCustomNamespace
+from .socket import MyCustomNamespace
 from flask_bcrypt import generate_password_hash
 
 __all__ = ['create_app']

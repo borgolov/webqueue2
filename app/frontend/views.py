@@ -4,6 +4,7 @@ from app.models import *
 
 from app.extensions import login_manager, my_sessions
 from app.frontend import frontend
+from app.utils import *
 
 
 @frontend.route('/')
@@ -20,10 +21,7 @@ def login():
     if request.method == 'POST' and 'signin' in request.form:
         username = str(request.form['InputUserName'])
         password = str(request.form['InputPassword'])
-        user = db.session.query(User).filter_by(username=username).first()
-        if user and user.check_password(password):
-            login_user(user, False)
-            return redirect("/")
+        auth(username, password)
     return render_template('login_form.html')
 
 
@@ -49,8 +47,20 @@ def api_tester():
     return render_template('api_tester.html')
 
 
-@frontend.route('/device')
+@frontend.route('/device', methods=['POST', 'GET'])
 def device():
-    session["device"]
-    print(session["device"])
-    return "sadasd"
+    if request.method == 'POST' and 'inputSelect' in request.form:
+        dev = db.session.query(Device).filter_by(id=request.form['inputDevice']).first()
+        if dev:
+            session["device"] = dev.id
+    if find_key_dict("device", session):
+        return render_template('api_tester.html')
+    else:
+        devices = db.session.query(Device).all()
+        return render_template('device_reg_form.html', list=devices)
+
+
+@frontend.route('/exitdevice', methods=['POST', 'GET'])
+def exit_device():
+    session.pop("device")
+    return redirect('/device')

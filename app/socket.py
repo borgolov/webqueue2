@@ -1,9 +1,10 @@
-from flask import current_app, request, copy_current_request_context
+from flask import current_app, request, copy_current_request_context, session
 from flask_login import current_user
 from flask_socketio import emit, join_room, leave_room, close_room, rooms, disconnect, Namespace
 from app import socket_io
 from app.models import *
 from .queue import *
+from .utils import *
 
 
 class MyCustomNamespace(Namespace):
@@ -27,15 +28,22 @@ class MyCustomNamespace(Namespace):
                 return
             worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
             if worker:
-                for place in self.queues:
-                    if place.id == worker.location_operator.id:
-                        if place.join_in_place(worker.id, request.sid):
-                            resp["room_id"] = place.name
-                            resp["user"] = current_user.username
-                            join_room(resp["room_id"], request.sid)
-                            emit('settings', resp)
-                        else:
-                            self.on_disconnect()
+                if self.find_queue(worker.location_operator.id):
+                    resp["room_id"] = worker.location_operator.name
+                    resp["user"] = current_user.username
+                    join_room(resp["room_id"], request.sid)
+                    emit('settings', resp)
+                else:
+                    self.on_disconnect()
+        else:
+            if find_key_dict("device", session):
+                dev = db.session.query(Device).filter_by(id=session["device"]).first()
+                if dev:
+                    if self.find_queue(dev.location_device.id):
+                        resp["room_id"] = dev.location_device.name
+                        resp["device"] = dev.name
+                        join_room(resp["room_id"], request.sid)
+                        emit('settings', resp)
 
     def on_disconnect(self):
         if current_user.is_authenticated:
@@ -51,3 +59,10 @@ class MyCustomNamespace(Namespace):
 
     def on_room_message(self, data):
         emit('for_testing', data, room=data['room'], broadcast=True)
+
+    def find_queue(self, id):
+        """Поиск нужной очереди"""
+        for place in self.queues:
+            if place.id == id:
+                return True
+        return False

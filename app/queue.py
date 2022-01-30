@@ -3,10 +3,11 @@ from .models import *
 
 
 class Ticket:
-    def __init__(self):
+    def __init__(self, service: Service):
         self.num = 0
         self.prefix = ''
         self.create_time = datetime.datetime.now()
+        self.service = service.id
         self.operator_id = None
 
     def set_operator(self, id=None):
@@ -35,3 +36,13 @@ class Queue:
             for key, value in d.items():
                 if value == sid:
                     self.sockets.remove(d)
+
+    def reg_ticket(self, service: Service):
+        self.tickets.append(Ticket(service))
+
+    def deley_ticket(self, ticket: Ticket):
+        self.delayed_tickets.append(ticket)
+        self.tickets.remove(ticket)
+
+    def discard_ticket(self, ticket: Ticket):
+        pass
