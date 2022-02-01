@@ -28,7 +28,6 @@ def create_app(config=None, app_name='app', blueprints=None):
 
 def configure_app(app, config=None):
     """Different ways of configurations."""
-
     if config:
         app.config.from_json(config, silent=True)
     else:

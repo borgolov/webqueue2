@@ -28,13 +28,15 @@ class MyCustomNamespace(Namespace):
                 return
             worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
             if worker:
-                if self.find_queue(worker.location_operator.id):
-                    resp["room_id"] = worker.location_operator.name
-                    resp["user"] = current_user.username
-                    join_room(resp["room_id"], request.sid)
-                    emit('settings', resp)
-                else:
-                    self.on_disconnect()
+                qu = self.find_queue(worker.location_operator.id)
+                if qu is not None:
+                    if qu.join_in_place(worker, request.sid):
+                        resp["room_id"] = worker.location_operator.name
+                        resp["user"] = current_user.username
+                        join_room(resp["room_id"], request.sid)
+                        emit('settings', resp)
+                    else:
+                        self.on_disconnect()
         else:
             if find_key_dict("device", session):
                 dev = db.session.query(Device).filter_by(id=session["device"]).first()
@@ -51,7 +53,7 @@ class MyCustomNamespace(Namespace):
             if worker:
                 for place in self.queues:
                     if place.id == worker.location_operator.id:
-                        place.leave_from_place(request.sid)
+                        place.leave_from_place(worker)
         disconnect(sid=request.sid, namespace=self)
 
     def on_my_event(self, data):
@@ -64,5 +66,5 @@ class MyCustomNamespace(Namespace):
         """Поиск нужной очереди"""
         for place in self.queues:
             if place.id == id:
-                return True
-        return False
+                return place
+        return None

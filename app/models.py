@@ -98,7 +98,7 @@ class Device(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     type = Column(Integer, ForeignKey('device_type.id', ondelete='CASCADE'), nullable=True)
-    location = Column(Integer, ForeignKey('location.id', ondelete='CASCADE'), primary_key=True, nullable=True)
+    location = Column(Integer, ForeignKey('location.id', ondelete='CASCADE'), nullable=True)
 
     type_device = relationship('DeviceType')
     location_device = relationship('Location')
