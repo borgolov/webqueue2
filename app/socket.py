@@ -62,6 +62,24 @@ class MyCustomNamespace(Namespace):
     def on_room_message(self, data):
         emit('for_testing', data, room=data['room'], broadcast=True)
 
+    def on_take_ticket(self, data):
+        pass
+
+    def on_call_client(self, data):
+        pass
+
+    def on_delay_client(self, data):
+        pass
+
+    def on_discard_client(self, data):
+        pass
+
+    def on_get_state_queue(self, data):
+        pass
+
+    def on_get_ticket(self, data):
+        pass
+
     def find_queue(self, id):
         """Поиск нужной очереди"""
         for place in self.queues:
