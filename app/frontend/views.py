@@ -10,6 +10,7 @@ from app.utils import *
 @frontend.route('/')
 @login_required
 def main():
+    print(session)
     return render_template('home.html', user=current_user.username)
 
 
@@ -22,6 +23,7 @@ def login():
         username = str(request.form['InputUserName'])
         password = str(request.form['InputPassword'])
         auth(username, password)
+        return redirect("/")
     return render_template('login_form.html')
 
 

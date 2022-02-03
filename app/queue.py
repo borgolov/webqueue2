@@ -33,14 +33,14 @@ class Queue:
 
     def join_in_place(self, operator: Operator, sid):
         for worker in self.sockets:
-            if worker.sid == sid:
+            if worker.id == operator.id:
                 return False
         self.sockets.append(Worker(operator, sid))
         return True
 
     def leave_from_place(self, operator: Operator):
         for d in self.sockets:
-            if d == operator:
+            if d.id == operator.id:
                 self.sockets.remove(d)
 
     def get_count_tickets(self, status: int):
@@ -71,3 +71,7 @@ class Queue:
         for ticket in self.tickets:
             if ticket.status == status:
                 return ticket
+
+    def reset_queue(self):
+        self.tickets = []
+        self.sockets = []

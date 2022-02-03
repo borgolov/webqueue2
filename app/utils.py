@@ -21,4 +21,3 @@ def auth(login: str, password: str):
     user = db.session.query(User).filter_by(username=login).first()
     if user and user.check_password(password):
         login_user(user, False)
-        return redirect("/")
