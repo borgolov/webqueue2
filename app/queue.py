@@ -10,11 +10,11 @@ class Worker:
 
 
 class Ticket:
-    def __init__(self, service: Service):
+    def __init__(self, service: Service, num):
         self.id = uuid.uuid4()
-        self.num = 0
-        self.prefix = ''
-        self.create_time = datetime.datetime.now()
+        self.num = num
+        self.prefix = service.prefix
+        self.create_time = datetime.now()
         self.service = service.id
         self.service_name = service.name
         self.operator_id = None
@@ -56,7 +56,7 @@ class Queue:
                 return ticket
 
     def reg_ticket(self, service: Service):
-        self.tickets.append(Ticket(service))
+        self.tickets.append(Ticket(service, self.get_count_tickets(0) + 1))
 
     def delay_ticket(self, uid):
         self.get_ticket(uid).status = 2
