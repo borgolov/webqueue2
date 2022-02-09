@@ -14,6 +14,12 @@ roles_users = db.Table(
     db.Column('role_id', db.Integer(), db.ForeignKey('role.id'))
 )
 
+services_operators = db.Table(
+    'services_operators',
+    db.Column('service_id', db.Integer(), db.ForeignKey('service.id')),
+    db.Column('operator_id', db.Integer(), db.ForeignKey('operator.id'))
+)
+
 
 class Role(db.Model, RoleMixin):
     __tablename__ = 'role'
@@ -115,7 +121,11 @@ class Operator(db.Model):
     location = Column(Integer, ForeignKey('location.id', ondelete='CASCADE'), nullable=False)
     user_operator = relationship('User')
     location_operator = relationship('Location')
+    services = db.relationship('Service', secondary=services_operators, backref=db.backref('operator', lazy='dynamic'))
 
     def __str__(self):
         return self.name
+
+    def has_service(self, *args):
+        return set(args).issubset({service.id for service in self.services})
 

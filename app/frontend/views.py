@@ -50,16 +50,19 @@ def api_tester():
 
 
 @frontend.route('/device', methods=['POST', 'GET'])
+@login_required
 def device():
-    if request.method == 'POST' and 'inputSelect' in request.form:
-        dev = db.session.query(Device).filter_by(id=request.form['inputDevice']).first()
-        if dev:
-            session["device"] = dev.id
-    if find_key_dict("device", session):
-        return render_template('api_tester.html')
-    else:
-        devices = db.session.query(Device).all()
-        return render_template('device_reg_form.html', list=devices)
+    if current_user.has_role('device'):
+        if request.method == 'POST' and 'inputSelect' in request.form:
+            dev = db.session.query(Device).filter_by(id=request.form['inputDevice']).first()
+            if dev:
+                session["device"] = dev.id
+        if find_key_dict("device", session):
+            return render_template('api_tester.html')
+        else:
+            devices = db.session.query(Device).all()
+            return render_template('device_reg_form.html', list=devices)
+    return redirect('/auth')
 
 
 @frontend.route('/exitdevice', methods=['POST', 'GET'])

@@ -2,13 +2,6 @@ import datetime, uuid
 from .models import *
 
 
-class Worker:
-    def __init__(self, operator: Operator, sid):
-        self.id = operator.id
-        self.name = operator.name
-        self.sid = sid
-
-
 class Ticket:
     def __init__(self, service: Service, num):
         self.id = uuid.uuid4()
@@ -23,6 +16,10 @@ class Ticket:
     def set_operator(self, id=None):
         self.operator_id = id
 
+    def set_service(self, service: Service):
+        self.service = service.id
+        self.service_name = service.name
+
 
 class Queue:
     def __init__(self, location: Location):
@@ -32,16 +29,10 @@ class Queue:
         self.sockets = [] # connected operators
 
     def join_in_place(self, operator: Operator, sid):
-        for worker in self.sockets:
-            if worker.id == operator.id:
-                return False
-        self.sockets.append(Worker(operator, sid))
-        return True
+        pass
 
     def leave_from_place(self, operator: Operator):
-        for d in self.sockets:
-            if d.id == operator.id:
-                self.sockets.remove(d)
+        pass
 
     def get_count_tickets(self, status: int):
         count = 0
@@ -55,8 +46,21 @@ class Queue:
             if ticket.id == uid:
                 return ticket
 
+    def get_ticket_on_worker(self, worker_id, status):
+        for ticket in self.tickets:
+            if ticket.operator_id == worker_id and ticket.status == status:
+                return ticket
+
     def reg_ticket(self, service: Service):
-        self.tickets.append(Ticket(service, self.get_count_tickets(0) + 1))
+        ticket = Ticket(service, self.get_count_tickets(0) + 1)
+        self.tickets.append(ticket)
+        return ticket
+
+    def success_ticket(self, worker_id):
+        ticket = self.get_ticket_on_worker(worker_id, 1)
+        if ticket:
+            self.tickets.remove(ticket)
+            return ticket
 
     def delay_ticket(self, uid):
         self.get_ticket(uid).status = 2
@@ -65,12 +69,25 @@ class Queue:
         self.get_ticket(uid).status = 3
 
     def take_service(self, uid):
-        self.get_ticket(uid).status = 1
+        ticket = self.get_ticket(uid)
+        if ticket:
+            ticket.status = 1
+            return ticket
 
-    def get_fifo_ticket(self, status):
+    def get_fifo_ticket(self, status, service_pool: list):
         for ticket in self.tickets:
             if ticket.status == status:
-                return ticket
+                if set([ticket.service]).issubset({service for service in service_pool}):
+                    return ticket
+
+    def is_free_worker(self, worker_id):
+        if self.get_ticket_on_worker(worker_id, 1) is not None:
+            return False
+        return True
+
+    def del_ticket(self, uid):
+        ticket = self.get_ticket(uid)
+        self.tickets.remove(ticket)
 
     def reset_queue(self):
         self.tickets = []
