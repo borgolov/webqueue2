@@ -17,7 +17,7 @@ def find_key_dict(key, coll: dict):
     return False
 
 
-def auth(login: str, password: str):
+def authorizade(login: str, password: str):
     """authorizate"""
     user = db.session.query(User).filter_by(username=login).first()
     if user and user.check_password(password):
@@ -55,6 +55,12 @@ def make_resp_on_queue(queue: Queue):
     resp['tickets_treatment'] = queue.get_count_tickets(1)
     resp['tickets_delayed'] = queue.get_count_tickets(2)
     resp['tickets_discarded'] = queue.get_count_tickets(3)
+    resp['treatment'] = []
+    for ticket in queue.get_treatment_ticket():
+        treat = dict()
+        treat["operator_id"] = ticket.operator_id
+        treat.update(make_resp_on_ticket(ticket))
+        resp['treatment'].append(treat)
     return resp
 
 

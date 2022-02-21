@@ -92,3 +92,10 @@ class Queue:
     def reset_queue(self):
         self.tickets = []
         self.sockets = []
+
+    def get_treatment_ticket(self):
+        array = list()
+        for ticket in self.tickets:
+            if ticket.status == 1:
+                array.append(ticket)
+        return array

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template
-from .extensions import db, migrate, ma, socket_io, login_manager, adm, my_sessions
+from .extensions import db, migrate, ma, socket_io, login_manager, adm, my_sessions, ma
 from app import socket, models
 from .frontend import frontend
+from .auth import auth
 from .admin import admin_bp, MyAdminIndexView
 from .api import restful_api
 from flask_socketio import SocketIO
@@ -11,7 +12,7 @@ from flask_bcrypt import generate_password_hash
 
 __all__ = ['create_app']
 
-BLUEPRINTS = (frontend, restful_api, admin_bp,)
+BLUEPRINTS = (frontend, restful_api, admin_bp, auth, )
 
 
 def create_app(config=None, app_name='app', blueprints=None):
@@ -42,6 +43,7 @@ def configure_extensions(app):
     login_manager.init_app(app)
     adm.init_app(app, index_view=MyAdminIndexView())
     my_sessions.init_app(app)
+    ma.init_app(app)
     with app.app_context():
         db.create_all()
         socket_io.init_app(app, logger=True, )

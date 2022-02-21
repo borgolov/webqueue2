@@ -1,3 +1,4 @@
+import os
 from flask import render_template, request, current_app, send_from_directory, redirect, jsonify, url_for, session
 from flask_login import current_user, login_user, login_required, logout_user
 from app.models import *
@@ -12,31 +13,6 @@ from app.utils import *
 def main():
     print(session)
     return render_template('home.html', user=current_user.username)
-
-
-@frontend.route('/auth', methods=['POST', 'GET'])
-def login():
-    """пользователь ранее был авторизован"""
-    if current_user.is_authenticated:
-        return redirect("/")
-    if request.method == 'POST' and 'signin' in request.form:
-        username = str(request.form['InputUserName'])
-        password = str(request.form['InputPassword'])
-        auth(username, password)
-        return redirect("/")
-    return render_template('login_form.html')
-
-
-@login_manager.user_loader
-def load_user(user_id):
-    return db.session.query(User).filter_by(id=user_id).first()
-
-
-@frontend.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    return redirect('/auth')
 
 
 @frontend.route('/simple_chat')
@@ -58,7 +34,9 @@ def device():
             if dev:
                 session["device"] = dev.id
         if find_key_dict("device", session):
-            return render_template('api_tester.html')
+            dev = db.session.query(Device).filter_by(id=session["device"]).first()
+            if dev and dev.has_type('Терминал'):
+                return render_template('terminal.html')
         else:
             devices = db.session.query(Device).all()
             return render_template('device_reg_form.html', list=devices)
@@ -69,3 +47,12 @@ def device():
 def exit_device():
     session.pop("device")
     return redirect('/device')
+
+
+@frontend.route('/ticket', methods=['GET'])
+def ticket_template():
+    if request.args.get('template'):
+        template = request.args.get('template')
+        if os.path.isfile(f'{current_app.root_path}/templates/ticket_template/{template}.html'):
+            return render_template(f'ticket_template/{template}.html', data=request.args.to_dict())
+    return render_template(f'ticket_template/default.html', data=request.args.to_dict())

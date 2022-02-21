@@ -18,6 +18,7 @@ class MyCustomNamespace(Namespace):
 
     def on_connect(self):
         #current_app.logger.info(f'connect client: {request.sid} , {str(request.remote_addr)}.')
+        print(current_user.is_authenticated)
         resp = {"room_id": "guest"}
         if current_user.is_authenticated:
             if current_user.has_role('superuser'):
@@ -47,34 +48,32 @@ class MyCustomNamespace(Namespace):
     def on_disconnect(self):
         disconnect(sid=request.sid, namespace=self)
 
-    def on_my_event(self, data):
-        emit('for_testing', data)
-
-    def on_room_message(self, data):
-        emit('for_testing', data, room=data['room'], broadcast=True)
-
     def on_take_ticket(self, data):
         """событие регистрации талона"""
+        print(data["service_id"])
         resp = {"room_id": data["room"]}
         que = find_queue_on_device(self.queues)
-        if que:
-            service = db.session.query(Service).filter(Service.id == data["service_id"]).first()
-            if service:
-                ticket = que.reg_ticket(service)
-                resp.update(make_resp_on_ticket(ticket))
-                emit('for_testing', resp)
-                emit('for_testing', make_resp_on_queue(que), room=data['room'], broadcast=True)
-            else:
-                resp["room_id"] = data["room"]
-                resp["error"] = "services not found"
-                emit('for_testing', resp)
+        service = db.session.query(Service).filter(Service.id == data["service_id"]).first()
+        if que and service:
+            ticket = que.reg_ticket(service)
+            resp.update(make_resp_on_ticket(ticket))
+
+            emit('last_ticket', resp)
+            emit('state', make_resp_on_queue(que), room=data['room'], broadcast=True)
+
+            emit('for_testing', resp)
+            emit('for_testing', make_resp_on_queue(que), room=data['room'], broadcast=True)
+            return
+        resp["room_id"] = data["room"]
+        resp["error"] = "services not found"
+        emit('for_testing', resp)
 
     def on_call_client(self, data):
         """событие вызова талона"""
         resp = {"room_id": data['room']}
         que = find_queue_on_user(self.queues)
         worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
-        if que:
+        if que and worker:
             service_pool = []
             for service in worker.services:
                 service_pool.append(service.id)
@@ -94,16 +93,49 @@ class MyCustomNamespace(Namespace):
         resp["error"] = "ticket not found"
         emit('for_testing', resp, room=request.sid)
 
-    def on_delay_client(self, data):
-        pass
+    def on_call_delay_client(self, data):
+        """событие вызова талона"""
+        resp = {"room_id": data['room']}
+        que = find_queue_on_user(self.queues)
+        worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
+        if que:
+            service_pool = []
+            for service in worker.services:
+                service_pool.append(service.id)
+            ticket = que.get_fifo_ticket(2, service_pool)
+            if ticket:
+                if not que.is_free_worker(worker.id):
+                    resp["error"] = "worker not free"
+                    resp.update(make_resp_on_ticket(que.get_ticket_on_worker(worker.id, 1)))
+                    emit('for_testing', resp, room=request.sid)
+                    return
+                que.take_service(ticket.id)
+                ticket.set_operator(worker.id)
+                resp.update(make_resp_on_ticket(ticket))
+                emit('for_testing', make_resp_on_queue(que), room=data['room'], broadcast=True)
+                emit('for_testing', resp, room=request.sid)
+                return
+        resp["error"] = "ticket not found"
+        emit('for_testing', resp, room=request.sid)
 
-    def on_discard_client(self, data):
-        pass
+    def on_delay_client(self, data):
+        """отложить тикет"""
+        resp = {"room_id": data['room']}
+        que = find_queue_on_user(self.queues)
+        worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
+        if que and worker:
+            ticket = que.get_ticket_on_worker(worker.id, 1)
+            ticket.set_operator()
+            ticket.status = 2
+            resp["status"] = "delayed!!!"
+            resp.update(make_resp_on_ticket(ticket))
+            emit('for_testing', make_resp_on_queue(que), room=data["room"], broadcast=True)
+            emit('for_testing', resp, room=request.sid)
 
     def on_confirm_client(self, data):
         """завершить работу с клиентом"""
         resp = dict()
-        que = find_queue_on_user()
+        que = find_queue_on_user(self.queues)
         if que:
             worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
             ticket = que.success_ticket(worker.id)
@@ -120,13 +152,13 @@ class MyCustomNamespace(Namespace):
     def on_get_state_queue(self, data):
         """полу4ить статус очереди"""
         resp = {"room_id": data['room']}
-        que_on_user = find_queue_on_user(self.queues)
-        que_on_device = find_queue_on_device(self.queues)
-        if que_on_user:
-            emit('for_testing', make_resp_on_queue(que_on_user), room=data['room'], broadcast=True)
-            return
-        if que_on_device:
-            emit('for_testing', make_resp_on_queue(que_on_device), room=data['room'], broadcast=True)
+        que = None
+        if current_user.has_role('device'):
+            que = find_queue_on_device(self.queues)
+        elif current_user.has_role('user'):
+            que = find_queue_on_user(self.queues)
+        if que:
+            emit('for_testing', make_resp_on_queue(que), room=data['room'], broadcast=True)
             return
         resp['error'] = 'queue not found'
         emit('for_testing', resp, room=data['room'])
@@ -134,17 +166,19 @@ class MyCustomNamespace(Namespace):
     def on_get_ticket(self, data):
         pass
 
-    def on_change_service_ticket(self, data):
+    def on_change_service_client(self, data):
         """сменить услугу у тикета"""
         resp = {"room_id": data['room']}
         service = db.session.query(Service).filter(Service.id == data["service_id"]).first()
         que = find_queue_on_user(self.queues)
         worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
-        if que:
+        if que and worker:
             ticket = que.get_ticket_on_worker(worker.id, 1)
             ticket.set_service(service)
+            ticket.set_operator()
             ticket.status = 0
             resp["status"] = "redirected!!!"
             resp.update(make_resp_on_ticket(ticket))
             emit('for_testing', make_resp_on_queue(que), room=data["room"], broadcast=True)
             emit('for_testing', resp, room=request.sid)
+

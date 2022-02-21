@@ -34,8 +34,8 @@ class MyAdminIndexView(AdminIndexView):
         return redirect('/auth')
 
 
-
 adm.add_view(MicroBlogModelView(User, db.session))
+adm.add_view(MicroBlogModelView(Company, db.session))
 adm.add_view(MicroBlogModelView(Role, db.session))
 adm.add_view(MicroBlogModelView(Location, db.session))
 adm.add_view(MicroBlogModelView(Service, db.session))

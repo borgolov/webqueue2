@@ -69,12 +69,24 @@ ServiceLocation = db.Table('service_location',
 )
 
 
+class Company(db.Model):
+    __tablename__ = 'company'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+
+    def __str__(self):
+        return self.name
+
+
 class Location(db.Model):
     __tablename__ = 'location'
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    company = Column(Integer, ForeignKey('company.id', ondelete='CASCADE'), nullable=True)
     services = relationship('Service', secondary=ServiceLocation, lazy='subquery', backref=db.backref('services', lazy=True))
+    location_company = relationship('Company')
 
     def __str__(self):
         return self.name
@@ -111,6 +123,9 @@ class Device(db.Model):
 
     def __str__(self):
         return self.name
+
+    def has_type(self, type):
+        return self.type_device.name == type
 
 
 class Operator(db.Model):
