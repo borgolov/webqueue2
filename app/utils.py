@@ -1,6 +1,7 @@
 from datetime import datetime
-from flask import redirect, session
+from flask import redirect, session, request
 from flask_login import login_user, current_user
+from flask_socketio import emit, join_room
 from .models import *
 from .queue import *
 
@@ -36,7 +37,7 @@ def find_queue_on_user(queues: list):
     if current_user.is_authenticated:
         worker = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
         if worker:
-            return find_queue(worker.location_operator.id, queues)
+            return find_queue(worker.location_operator.id, queues), worker
 
 
 def find_queue_on_device(queues: list):
@@ -44,7 +45,7 @@ def find_queue_on_device(queues: list):
     if find_key_dict("device", session):
         dev = db.session.query(Device).filter_by(id=session["device"]).first()
         if dev:
-            return find_queue(dev.location_device.id, queues)
+            return find_queue(dev.location_device.id, queues), dev
 
 
 def make_resp_on_queue(queue: Queue):
@@ -58,7 +59,9 @@ def make_resp_on_queue(queue: Queue):
     resp['treatment'] = []
     for ticket in queue.get_treatment_ticket():
         treat = dict()
-        treat["operator_id"] = ticket.operator_id
+        treat["operator"] = dict()
+        treat["operator"]["id"] = ticket.operator_id
+        treat["operator"]["name"] = db.session.query(Operator).filter_by(id=ticket.operator_id).first().name
         treat.update(make_resp_on_ticket(ticket))
         resp['treatment'].append(treat)
     return resp
@@ -76,3 +79,170 @@ def make_resp_on_ticket(ticket: Ticket):
     resp["ticket"]["service"]["id"] = ticket.service
     resp["ticket"]["service"]["name"] = ticket.service_name
     return resp
+
+
+def socket_interaction(queues: list):
+    """поиск объектов для взаимодействия с очередью"""
+    result = dict()
+    if current_user.is_authenticated:
+        if current_user.has_role('superuser'):
+            pass
+        elif current_user.has_role('device'):
+            result["queue"], result["device"] = find_queue_on_device(queues)
+            result["location"] = result["device"].location_device
+        elif current_user.has_role('operator'):
+            result["queue"], result["operator"] = find_queue_on_user(queues)
+            result["location"] = result["operator"].location_operator
+    print(result)
+    return result
+
+
+def socket_connect(queues: list):
+    """подключение к системе клиентов"""
+    resp = {"room_id": "guest"}
+    interactions = socket_interaction(queues)
+    if interactions['queue']:
+        if find_key_dict('device', interactions):
+            resp["room_id"] = interactions['device'].location_device.name
+            resp["device"] = interactions['device'].name
+            join_room(resp["room_id"], request.sid)
+            emit('settings', resp)
+            emit('state', make_resp_on_queue(interactions['queue']), room=interactions['device'].location_device.name)
+        elif find_key_dict('operator', interactions):
+            resp["room_id"] = interactions['operator'].location_operator.name
+            resp["user"] = current_user.username
+            join_room(resp["room_id"], request.sid)
+            emit('settings', resp)
+
+
+def take_ticket(queues: list, data: dict):
+    """заказ талона"""
+    resp = {"room_id": data["room"]}
+    interactions = socket_interaction(queues)
+    service = db.session.query(Service).filter(Service.id == data["service_id"]).first()
+    if interactions['queue'] and service:
+        if find_key_dict('device', interactions):
+            ticket = interactions['queue'].reg_ticket(service)
+            resp.update(make_resp_on_ticket(ticket))
+            emit('last_ticket', resp)
+            emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('for_testing', resp)
+            emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            return
+    resp["room_id"] = data["room"]
+    resp["error"] = "services not found"
+    emit('last_ticket', resp)
+    emit('for_testing', resp)
+
+
+def call_client(queues: list, data: dict):
+    """вызвать первого из очереди"""
+    resp = {"room_id": data["room"]}
+    interactions = socket_interaction(queues)
+    if interactions['queue'] and interactions['operator']:
+        service_pool = []
+        for service in interactions['operator'].services:
+            service_pool.append(service.id)
+        ticket = interactions['queue'].get_fifo_ticket(0, service_pool)
+        if ticket:
+            if not interactions['queue'].is_free_worker(interactions['operator'].id):
+                resp["error"] = "worker not free"
+                resp.update(make_resp_on_ticket(interactions['queue'].get_ticket_on_worker(interactions['operator'].id, 1)))
+                emit('for_testing', resp, room=request.sid)
+                return
+            interactions['queue'].take_service(ticket.id)
+            ticket.set_operator(interactions['operator'].id)
+            resp.update(make_resp_on_ticket(ticket))
+            emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('for_testing', resp, room=request.sid)
+
+            emit('last_ticket', resp)
+            emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('call_client', make_resp_on_ticket(ticket), room=data['room'], broadcast=True)
+            return
+        resp["error"] = "ticket not found"
+        emit('for_testing', resp, room=request.sid)
+
+
+def call_delay_client(queues: list, data: dict):
+    """вызвать отложенного из очереди"""
+    resp = {"room_id": data["room"]}
+    interactions = socket_interaction(queues)
+    if interactions['queue'] and interactions['operator']:
+        service_pool = []
+        for service in interactions['operator'].services:
+            service_pool.append(service.id)
+        ticket = interactions['queue'].get_fifo_ticket(2, service_pool)
+        if ticket:
+            if not interactions['queue'].is_free_worker(interactions['operator'].id):
+                resp["error"] = "worker not free"
+                resp.update(make_resp_on_ticket(interactions['queue'].get_ticket_on_worker(interactions['operator'].id, 1)))
+                emit('for_testing', resp, room=request.sid)
+                return
+            interactions['queue'].take_service(ticket.id)
+            ticket.set_operator(interactions['operator'].id)
+            resp.update(make_resp_on_ticket(ticket))
+            emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('for_testing', resp, room=request.sid)
+            emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            return
+    resp["error"] = "ticket not found"
+    emit('for_testing', resp, room=request.sid)
+
+
+def delay_client(queues: list, data: dict):
+    """отложить клиента"""
+    resp = {"room_id": data["room"]}
+    interactions = socket_interaction(queues)
+    if interactions['queue'] and interactions['operator']:
+        ticket = interactions['queue'].get_ticket_on_worker(interactions['operator'].id, 1)
+        ticket.set_operator()
+        ticket.status = 2
+        resp["status"] = "delayed!!!"
+        resp.update(make_resp_on_ticket(ticket))
+        emit('for_testing', make_resp_on_queue(interactions['queue']), room=data["room"], broadcast=True)
+        emit('for_testing', resp, room=request.sid)
+        emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+
+
+def confirm_client(queues: list, data: dict):
+    """завершить с клиентом прием"""
+    resp = {"room_id": data["room"]}
+    interactions = socket_interaction(queues)
+    if interactions['queue'] and interactions['operator']:
+        ticket = interactions['queue'].success_ticket(interactions['operator'].id)
+        if ticket:
+            resp["status"] = "successed!!!"
+            resp.update(make_resp_on_ticket(ticket))
+            emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('for_testing', resp, room=request.sid)
+            emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            return
+        resp["error"] = "empty"
+        emit('for_testing', resp, room=request.sid)
+
+
+def get_state_queue(queues: list, data: dict):
+    """получить состояние очереди"""
+    resp = {"room_id": data["room"]}
+    interactions = socket_interaction(queues)
+    if interactions['queue']:
+        emit('state', resp.update(make_resp_on_queue(interactions['queue'])), room=request.sid)
+        emit('for_testing', resp, room=request.sid)
+
+
+def change_service_client(queues: list, data: dict):
+    """сменить услугу клиенту"""
+    resp = {"room_id": data["room"]}
+    interactions = socket_interaction(queues)
+    service = db.session.query(Service).filter(Service.id == data["service_id"]).first()
+    if interactions['queue'] and interactions['operator'] and service:
+        ticket = interactions['queue'].get_ticket_on_worker(interactions['operator'].id, 1)
+        ticket.set_service(service)
+        ticket.set_operator()
+        ticket.status = 0
+        resp["status"] = "redirected!!!"
+        resp.update(make_resp_on_ticket(ticket))
+        emit('state', make_resp_on_queue(interactions['queue']), room=data["room"], broadcast=True)
+        emit('for_testing', make_resp_on_queue(interactions['queue']), room=data["room"], broadcast=True)
+        emit('for_testing', resp, room=request.sid)

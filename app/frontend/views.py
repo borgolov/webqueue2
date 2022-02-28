@@ -35,8 +35,10 @@ def device():
                 session["device"] = dev.id
         if find_key_dict("device", session):
             dev = db.session.query(Device).filter_by(id=session["device"]).first()
-            if dev and dev.has_type('Терминал'):
+            if dev.type_device.name == 'Терминал':
                 return render_template('terminal.html')
+            return 'screen'
+
         else:
             devices = db.session.query(Device).all()
             return render_template('device_reg_form.html', list=devices)
