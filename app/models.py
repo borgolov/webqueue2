@@ -92,14 +92,6 @@ class Location(db.Model):
         return self.name
 
 
-class DeviceType(db.Model):
-    __tablename__ = 'device_type'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-
-    def __str__(self):
-        return self.name
-
 
 class Service(db.Model):
     __tablename__ = 'service'
@@ -109,23 +101,6 @@ class Service(db.Model):
 
     def __str__(self):
         return self.name
-
-
-class Device(db.Model):
-    __tablename__ = 'device'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    type = Column(Integer, ForeignKey('device_type.id', ondelete='CASCADE'), nullable=True)
-    location = Column(Integer, ForeignKey('location.id', ondelete='CASCADE'), nullable=True)
-
-    type_device = relationship('DeviceType')
-    location_device = relationship('Location')
-
-    def __str__(self):
-        return self.name
-
-    def has_type(self, type):
-        return self.type_device.name == type
 
 
 class Operator(db.Model):

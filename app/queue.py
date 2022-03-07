@@ -26,18 +26,19 @@ class Queue:
         self.id = location.id
         self.name = location.name
         self.tickets = []
-        self.sockets = [] # connected operators
-
-    def join_in_place(self, operator: Operator, sid):
-        pass
-
-    def leave_from_place(self, operator: Operator):
-        pass
+        self.increment = 0
 
     def get_count_tickets(self, status: int):
         count = 0
         for ticket in self.tickets:
             if ticket.status == status:
+                count += 1
+        return count
+
+    def get_count_tickets_on_service(self, service_id: int):
+        count = 0
+        for ticket in self.tickets:
+            if ticket.service == service_id:
                 count += 1
         return count
 
@@ -52,7 +53,8 @@ class Queue:
                 return ticket
 
     def reg_ticket(self, service: Service):
-        ticket = Ticket(service, self.get_count_tickets(0) + 1)
+        self.increment += 1
+        ticket = Ticket(service, self.increment)
         self.tickets.append(ticket)
         return ticket
 
@@ -91,7 +93,7 @@ class Queue:
 
     def reset_queue(self):
         self.tickets = []
-        self.sockets = []
+        self.increment = 0
 
     def get_treatment_ticket(self):
         array = list()

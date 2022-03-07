@@ -10,8 +10,8 @@ from flask_session import Session
 from flask_marshmallow import Marshmallow
 
 
-bcrypt = Bcrypt()
 db = SQLAlchemy()
+bcrypt = Bcrypt()
 migrate = Migrate()
 ma = Marshmallow()
 socket_io = SocketIO()

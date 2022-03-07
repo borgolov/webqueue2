@@ -40,12 +40,12 @@ def find_queue_on_user(queues: list):
             return find_queue(worker.location_operator.id, queues), worker
 
 
-def find_queue_on_device(queues: list):
-    """Поиск нужной очереди по устройству"""
-    if find_key_dict("device", session):
-        dev = db.session.query(Device).filter_by(id=session["device"]).first()
-        if dev:
-            return find_queue(dev.location_device.id, queues), dev
+def find_queue_on_location(queues: list):
+    """Поиск нужной очереди по локации"""
+    if find_key_dict("location", session):
+        location = db.session.query(Location).filter_by(id=session["location"]).first()
+        if location:
+            return find_queue(location.id, queues), location
 
 
 def make_resp_on_queue(queue: Queue):
@@ -56,6 +56,9 @@ def make_resp_on_queue(queue: Queue):
     resp['tickets_treatment'] = queue.get_count_tickets(1)
     resp['tickets_delayed'] = queue.get_count_tickets(2)
     resp['tickets_discarded'] = queue.get_count_tickets(3)
+    resp['services'] = []
+    for service in db.session.query(Location).filter_by(id=queue.id).first().services:
+        resp['services'].append({'service': {'id': service.id, 'name': service.name, 'count': queue.get_count_tickets_on_service(service.id)}})
     resp['treatment'] = []
     for ticket in queue.get_treatment_ticket():
         treat = dict()
@@ -86,14 +89,12 @@ def socket_interaction(queues: list):
     result = dict()
     if current_user.is_authenticated:
         if current_user.has_role('superuser'):
-            pass
-        elif current_user.has_role('device'):
-            result["queue"], result["device"] = find_queue_on_device(queues)
-            result["location"] = result["device"].location_device
+            result["queue"], result["location"] = find_queue_on_location(queues)
+            result["room"] = str(result["location"].id)
         elif current_user.has_role('operator'):
             result["queue"], result["operator"] = find_queue_on_user(queues)
             result["location"] = result["operator"].location_operator
-    print(result)
+            result["room"] = str(result["location"].id)
     return result
 
 
@@ -102,16 +103,15 @@ def socket_connect(queues: list):
     resp = {"room_id": "guest"}
     interactions = socket_interaction(queues)
     if interactions['queue']:
-        if find_key_dict('device', interactions):
-            resp["room_id"] = interactions['device'].location_device.name
-            resp["device"] = interactions['device'].name
-            join_room(resp["room_id"], request.sid)
+        if find_key_dict('location', interactions):
+            join_room(interactions["room"], request.sid)
+            resp["room_id"] = str(interactions['room'])
             emit('settings', resp)
-            emit('state', make_resp_on_queue(interactions['queue']), room=interactions['device'].location_device.name)
+            emit('state', make_resp_on_queue(interactions['queue']), room=str(interactions['room']))
         elif find_key_dict('operator', interactions):
-            resp["room_id"] = interactions['operator'].location_operator.name
+            join_room(str(interactions['room']), request.sid)
+            resp["room_id"] = interactions['operator'].location_operator.id
             resp["user"] = current_user.username
-            join_room(resp["room_id"], request.sid)
             emit('settings', resp)
 
 
@@ -121,13 +121,13 @@ def take_ticket(queues: list, data: dict):
     interactions = socket_interaction(queues)
     service = db.session.query(Service).filter(Service.id == data["service_id"]).first()
     if interactions['queue'] and service:
-        if find_key_dict('device', interactions):
+        if find_key_dict('location', interactions):
             ticket = interactions['queue'].reg_ticket(service)
             resp.update(make_resp_on_ticket(ticket))
             emit('last_ticket', resp)
-            emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('state', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
             emit('for_testing', resp)
-            emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('for_testing', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
             return
     resp["room_id"] = data["room"]
     resp["error"] = "services not found"
@@ -143,25 +143,33 @@ def call_client(queues: list, data: dict):
         service_pool = []
         for service in interactions['operator'].services:
             service_pool.append(service.id)
-        ticket = interactions['queue'].get_fifo_ticket(0, service_pool)
-        if ticket:
-            if not interactions['queue'].is_free_worker(interactions['operator'].id):
-                resp["error"] = "worker not free"
-                resp.update(make_resp_on_ticket(interactions['queue'].get_ticket_on_worker(interactions['operator'].id, 1)))
-                emit('for_testing', resp, room=request.sid)
-                return
-            interactions['queue'].take_service(ticket.id)
-            ticket.set_operator(interactions['operator'].id)
-            resp.update(make_resp_on_ticket(ticket))
-            emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+        resp['operator'] = {
+            'id': interactions['operator'].id,
+            'name':  interactions['operator'].name
+        }
+        if not interactions['queue'].is_free_worker(interactions['operator'].id):
+            resp["error"] = "worker not free"
+            treatment = interactions['queue'].get_ticket_on_worker(interactions['operator'].id, 1)
+            resp.update(make_resp_on_ticket(treatment))
+            emit('call_client', resp, room=interactions['room'], broadcast=True)
             emit('for_testing', resp, room=request.sid)
-
-            emit('last_ticket', resp)
-            emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
-            emit('call_client', make_resp_on_ticket(ticket), room=data['room'], broadcast=True)
             return
-        resp["error"] = "ticket not found"
-        emit('for_testing', resp, room=request.sid)
+        else:
+            ticket = interactions['queue'].get_fifo_ticket(0, service_pool)
+            if ticket:
+                interactions['queue'].take_service(ticket.id)
+                ticket.set_operator(interactions['operator'].id)
+                resp.update(make_resp_on_ticket(ticket))
+                emit('for_testing', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
+                emit('for_testing', resp, room=request.sid)
+
+                emit('for_operator', resp, room=request.sid)
+                emit('last_ticket', resp)
+                emit('state', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
+                emit('call_client', resp, room=data['room'], broadcast=True)
+                return
+            resp["error"] = "ticket not found"
+            emit('for_testing', resp, room=request.sid)
 
 
 def call_delay_client(queues: list, data: dict):
@@ -185,6 +193,7 @@ def call_delay_client(queues: list, data: dict):
             emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
             emit('for_testing', resp, room=request.sid)
             emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('call_client', resp, room=data['room'], broadcast=True)
             return
     resp["error"] = "ticket not found"
     emit('for_testing', resp, room=request.sid)
@@ -216,7 +225,8 @@ def confirm_client(queues: list, data: dict):
             resp.update(make_resp_on_ticket(ticket))
             emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
             emit('for_testing', resp, room=request.sid)
-            emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+            emit('state', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
+            emit('confirm_client', room=request.sid)
             return
         resp["error"] = "empty"
         emit('for_testing', resp, room=request.sid)

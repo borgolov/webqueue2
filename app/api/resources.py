@@ -20,19 +20,29 @@ class TerminalResource(Resource):
     @login_required
     def get(self):
         resp = dict()
-        if find_key_dict("device", session):
-            query = db.session.query(Device).filter(Device.id == session["device"]).first()
+        if find_key_dict("location", session):
+            query = db.session.query(Location).filter(Location.id == session["location"]).first()
             if not query:
-                resp["error"] = "device not found"
-                return
-            device_schema = DeviceSchema()
+                resp["error"] = "location not found"
+                return resp
             service_schema = ServiceSchema(many=True)
-            resp["organization"] = query.location_device.location_company.name
-            resp["location"] = query.location_device.name
-            resp["device"] = device_schema.dump(query)
-            resp["services"] = service_schema.dump(query.location_device.services)
+            resp["organization"] = query.location_company.name
+            resp["location"] = query.name
+            resp["services"] = service_schema.dump(query.services)
         return resp
 
 
-
+class OperatorResource(Resource):
+    @login_required
+    def get(self):
+        resp = dict()
+        operator = db.session.query(Operator).filter(Operator.user_operator == current_user).first()
+        if not operator:
+            resp["error"] = "device not found"
+            return resp
+        schema = OperatorSchema()
+        resp["organization"] = operator.location_operator.location_company.name
+        resp["location"] = operator.location_operator.name
+        resp["operator"] = schema.dump(operator)
+        return resp
 

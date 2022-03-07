@@ -32,9 +32,3 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = User
         load_instance = True
-
-
-class DeviceSchema(ma.SQLAlchemyAutoSchema):
-    class Meta:
-        model = Device
-        load_instance = True

@@ -25,30 +25,44 @@ def api_tester():
     return render_template('api_tester.html')
 
 
-@frontend.route('/device', methods=['POST', 'GET'])
+@frontend.route('/terminal', methods=['POST', 'GET'])
 @login_required
-def device():
-    if current_user.has_role('device'):
-        if request.method == 'POST' and 'inputSelect' in request.form:
-            dev = db.session.query(Device).filter_by(id=request.form['inputDevice']).first()
-            if dev:
-                session["device"] = dev.id
-        if find_key_dict("device", session):
-            dev = db.session.query(Device).filter_by(id=session["device"]).first()
-            if dev.type_device.name == 'Терминал':
-                return render_template('terminal.html')
-            return 'screen'
+def terminal():
+    if not current_user.has_role('superuser'):
+        return "permition denied"
+    if request.method == 'POST' and 'inputSelect' in request.form:
+        location = db.session.query(Location).filter_by(id=request.form['inputDevice']).first()
+        if location:
+            session["location"] = location.id
+    if find_key_dict("location", session):
+        location = db.session.query(Location).filter(Location.id == session['location']).first()
+        if location:
+            return render_template('terminal.html')
+    locations = db.session.query(Location).all()
+    return render_template('device_reg_form.html', list=locations)
 
-        else:
-            devices = db.session.query(Device).all()
-            return render_template('device_reg_form.html', list=devices)
-    return redirect('/auth')
+
+@frontend.route('/screen', methods=['POST', 'GET'])
+@login_required
+def screen():
+    if not current_user.has_role('superuser'):
+        return "permition denied"
+    if request.method == 'POST' and 'inputSelect' in request.form:
+        location = db.session.query(Location).filter_by(id=request.form['inputDevice']).first()
+        if location:
+            session["location"] = location.id
+    if find_key_dict("location", session):
+        location = db.session.query(Location).filter(Location.id == session['location']).first()
+        if location:
+            return render_template('screen.html')
+    locations = db.session.query(Location).all()
+    return render_template('device_reg_form.html', list=locations)
 
 
 @frontend.route('/exitdevice', methods=['POST', 'GET'])
 def exit_device():
-    session.pop("device")
-    return redirect('/device')
+    session.pop("location")
+    return redirect('/')
 
 
 @frontend.route('/ticket', methods=['GET'])
