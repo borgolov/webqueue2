@@ -1,5 +1,5 @@
 {
-  "DEBUG":true,
+  "DEBUG": false,
   "SECRET_KEY":"sfsdf213123fdsff5453rsdcxvfdfdg56y5rghyuk678rthrthfyhjuyi7u4tryrtyrtyrtyrty54663s",
   "EXPLAIN_TEMPLATE_LOADING": false,
   "SQLALCHEMY_DATABASE_URI":"sqlite:///sqlite3.db",
@@ -9,24 +9,5 @@
   "SESSION_TYPE": "filesystem",
   "JWT_SECRET_KEY":"t1NP63m4wnBg6nyHYKfmc2TpCOGI4nss",
   "LOG_FOLDER": "log",
-  "FLASK_ADMIN_SWATCH": "cerulean",
-
-  "SECURITY_URL_PREFIX": "/admin",
-  "SECURITY_LOGIN_URL": "/login/",
-  "SECURITY_LOGOUT_URL": "/logout/",
-  "SECURITY_POST_LOGIN_VIEW": "/admin/",
-  "SECURITY_POST_LOGOUT_VIEW": "/admin/",
-  "SECURITY_POST_REGISTER_VIEW": "/admin/",
-
-  "SECURITY_REGISTERABLE": true,
-  "SECURITY_REGISTER_URL": "/register/",
-  "SECURITY_SEND_REGISTER_EMAIL": false,
-
-  "SECURITY_RECOVERABLE": true,
-  "SECURITY_RESET_URL": "/reset/",
-  "SECURITY_SEND_PASSWORD_RESET_EMAIL": true,
-
-  "SECURITY_CHANGEABLE": true,
-  "SECURITY_CHANGE_URL": "/change/",
-  "SECURITY_SEND_PASSWORD_CHANGE_EMAIL": false
+  "FLASK_ADMIN_SWATCH": "cerulean"
 }

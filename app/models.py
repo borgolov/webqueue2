@@ -107,6 +107,7 @@ class Operator(db.Model):
     __tablename__ = 'operator'
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    duber = Column(String)
     user = Column(Integer, ForeignKey('user.id', ondelete='CASCADE'), nullable=False, unique=True)
     location = Column(Integer, ForeignKey('location.id', ondelete='CASCADE'), nullable=False)
     user_operator = relationship('User')

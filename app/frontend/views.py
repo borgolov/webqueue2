@@ -65,6 +65,11 @@ def exit_device():
     return redirect('/')
 
 
+@frontend.route('/worker', methods=['POST', 'GET'])
+def worker():
+    return render_template('worker.html')
+
+
 @frontend.route('/ticket', methods=['GET'])
 def ticket_template():
     if request.args.get('template'):

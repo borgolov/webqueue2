@@ -41,8 +41,10 @@ class OperatorResource(Resource):
             resp["error"] = "device not found"
             return resp
         schema = OperatorSchema()
+        service_schema = ServiceSchema(many=True)
         resp["organization"] = operator.location_operator.location_company.name
         resp["location"] = operator.location_operator.name
         resp["operator"] = schema.dump(operator)
+        resp["services"] = service_schema.dump(operator.location_operator.services)
         return resp
 

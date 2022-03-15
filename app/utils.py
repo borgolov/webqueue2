@@ -55,10 +55,10 @@ def make_resp_on_queue(queue: Queue):
     resp['tickets_in_queue'] = queue.get_count_tickets(0)
     resp['tickets_treatment'] = queue.get_count_tickets(1)
     resp['tickets_delayed'] = queue.get_count_tickets(2)
-    resp['tickets_discarded'] = queue.get_count_tickets(3)
     resp['services'] = []
     for service in db.session.query(Location).filter_by(id=queue.id).first().services:
-        resp['services'].append({'service': {'id': service.id, 'name': service.name, 'count': queue.get_count_tickets_on_service(service.id)}})
+        resp['services'].append({'service': {'id': service.id, 'name': service.name, 'count': queue.get_count_tickets_on_service(service.id, 0),
+                                             'count_delay': queue.get_count_tickets_on_service(service.id, 2)}})
     resp['treatment'] = []
     for ticket in queue.get_treatment_ticket():
         treat = dict()
@@ -145,7 +145,8 @@ def call_client(queues: list, data: dict):
             service_pool.append(service.id)
         resp['operator'] = {
             'id': interactions['operator'].id,
-            'name':  interactions['operator'].name
+            'name':  interactions['operator'].name,
+            'duber': interactions['operator'].duber
         }
         if not interactions['queue'].is_free_worker(interactions['operator'].id):
             resp["error"] = "worker not free"
@@ -188,12 +189,14 @@ def call_delay_client(queues: list, data: dict):
                 emit('for_testing', resp, room=request.sid)
                 return
             interactions['queue'].take_service(ticket.id)
+            resp['operator'] = {'id': interactions['operator'].id, 'name': interactions['operator'].name}
             ticket.set_operator(interactions['operator'].id)
             resp.update(make_resp_on_ticket(ticket))
             emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
             emit('for_testing', resp, room=request.sid)
+            emit('for_operator', resp, room=request.sid)
             emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
-            emit('call_client', resp, room=data['room'], broadcast=True)
+            emit('call_client', resp, room=interactions['room'], broadcast=True)
             return
     resp["error"] = "ticket not found"
     emit('for_testing', resp, room=request.sid)
@@ -212,6 +215,7 @@ def delay_client(queues: list, data: dict):
         emit('for_testing', make_resp_on_queue(interactions['queue']), room=data["room"], broadcast=True)
         emit('for_testing', resp, room=request.sid)
         emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
+        emit('confirm_client', room=request.sid)
 
 
 def confirm_client(queues: list, data: dict):
@@ -253,6 +257,7 @@ def change_service_client(queues: list, data: dict):
         ticket.status = 0
         resp["status"] = "redirected!!!"
         resp.update(make_resp_on_ticket(ticket))
-        emit('state', make_resp_on_queue(interactions['queue']), room=data["room"], broadcast=True)
-        emit('for_testing', make_resp_on_queue(interactions['queue']), room=data["room"], broadcast=True)
+        emit('state', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
+        emit('confirm_client', room=request.sid)
+        emit('for_testing', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
         emit('for_testing', resp, room=request.sid)

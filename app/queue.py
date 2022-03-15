@@ -35,10 +35,10 @@ class Queue:
                 count += 1
         return count
 
-    def get_count_tickets_on_service(self, service_id: int):
+    def get_count_tickets_on_service(self, service_id: int, status: int):
         count = 0
         for ticket in self.tickets:
-            if ticket.service == service_id:
+            if ticket.service == service_id and ticket.status == status:
                 count += 1
         return count
 
