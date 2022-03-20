@@ -11,7 +11,6 @@ from app.utils import *
 @frontend.route('/')
 @login_required
 def main():
-    print(session)
     return render_template('home.html', user=current_user.username)
 
 

@@ -5,51 +5,53 @@ from app import socket_io
 from app.models import *
 from .queue import *
 from .utils import *
+from app import queues
 
 
 class MyCustomNamespace(Namespace):
-    def __init__(self, namespace=None):
-        super(MyCustomNamespace, self).__init__(namespace)
-        self.queues = list()
-        locations = db.session.query(Location).all()
-        for locate in locations:
-            queue = Queue(locate)
-            self.queues.append(queue)
-
-    def on_connect(self):
-        socket_connect(self.queues)
+    @staticmethod
+    def on_connect():
+        socket_connect(queues)
 
     def on_disconnect(self):
         disconnect(sid=request.sid, namespace=self)
 
-    def on_take_ticket(self, data):
+    @staticmethod
+    def on_take_ticket(data):
         """событие регистрации талона"""
-        take_ticket(self.queues, data)
+        take_ticket(queues, data)
 
-    def on_call_client(self, data):
+    @staticmethod
+    def on_call_client(data):
         """событие вызова талона"""
-        call_client(self.queues, data)
+        call_client(queues, data)
 
-    def on_call_delay_client(self, data):
+    @staticmethod
+    def on_call_delay_client(data):
         """событие вызова талона"""
-        call_delay_client(self.queues, data)
+        call_delay_client(queues, data)
 
-    def on_delay_client(self, data):
+    @staticmethod
+    def on_delay_client(data):
         """отложить тикет"""
-        delay_client(self.queues, data)
+        delay_client(queues, data)
 
-    def on_confirm_client(self, data):
+    @staticmethod
+    def on_confirm_client(data):
         """завершить работу с клиентом"""
-        confirm_client(self.queues, data)
+        confirm_client(queues, data)
 
-    def on_get_state_queue(self, data):
+    @staticmethod
+    def on_get_state_queue(data):
         """полу4ить статус очереди"""
-        get_state_queue(self.queues, data)
+        get_state_queue(queues, data)
 
-    def on_get_ticket(self, data):
+    @staticmethod
+    def on_get_ticket(data):
         pass
 
-    def on_change_service_client(self, data):
+    @staticmethod
+    def on_change_service_client(data):
         """сменить услугу у тикета"""
-        change_service_client(self.queues, data)
+        change_service_client(queues, data)
 

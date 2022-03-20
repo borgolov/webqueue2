@@ -1,9 +1,11 @@
+import time
 from datetime import datetime
 from flask import redirect, session, request
 from flask_login import login_user, current_user
 from flask_socketio import emit, join_room
 from .models import *
 from .queue import *
+from .extensions import queues
 
 
 def get_current_time():
@@ -261,3 +263,16 @@ def change_service_client(queues: list, data: dict):
         emit('confirm_client', room=request.sid)
         emit('for_testing', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
         emit('for_testing', resp, room=request.sid)
+
+
+def clear_queue_on_time():
+    """очистить очереди по времени"""
+    while True:
+        now = datetime.datetime.now()
+        today8am = now.replace(hour=18, minute=35, second=0, microsecond=0)
+        if now > today8am:
+            for queue in queues:
+                queue.reset_queue()
+        else:
+            pass
+        time.sleep(20)

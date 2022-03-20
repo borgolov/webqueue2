@@ -19,3 +19,4 @@ login_manager = LoginManager()
 adm = Admin()
 my_sessions = Session()
 ma = Marshmallow()
+queues = []

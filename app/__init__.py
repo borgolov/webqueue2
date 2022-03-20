@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template
-from .extensions import db, migrate, ma, socket_io, login_manager, adm, my_sessions, ma
+from .extensions import db, migrate, ma, socket_io, login_manager, adm, my_sessions, ma, queues
 from app import socket, models
 from .frontend import frontend
 from .auth import auth
-from .admin import admin_bp, MyAdminIndexView
+from .admin_queue import admin_bp, MyAdminIndexView
 from .api import restful_api
 from flask_socketio import SocketIO
 from .socket import MyCustomNamespace
 from flask_bcrypt import generate_password_hash
+from .models import Location
+from .queue import Queue
 
 __all__ = ['create_app']
 
@@ -48,6 +50,7 @@ def configure_extensions(app):
         db.create_all()
         socket_io.init_app(app, logger=True, )
         socket_io.on_namespace(MyCustomNamespace(namespace='/queue'))
+        create_queues()
 
 
 def register_blueprints(app, blueprints):
@@ -86,10 +89,12 @@ def configure_logging(app):
     )
     app.logger.addHandler(info_file_handler)
 
-    # Testing
-    #app.logger.info("testing info.")
-    #app.logger.warn("testing warn.")
-    #app.logger.error("testing error.")
+
+def create_queues():
+    locations = db.session.query(Location).all()
+    for locate in locations:
+        queue = Queue(locate)
+        queues.append(queue)
 
 
 def configure_error_handlers(app):
