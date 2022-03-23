@@ -85,6 +85,8 @@ class Location(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     company = Column(Integer, ForeignKey('company.id', ondelete='CASCADE'), nullable=True)
+    is_offset_time = Column(Boolean, default=False)
+    offset_time = Column(Time, default=datetime.now().time().replace(hour=20, minute=00, second=00))
     services = relationship('Service', secondary=ServiceLocation, lazy='subquery', backref=db.backref('services', lazy=True))
     location_company = relationship('Company')
 
@@ -92,12 +94,13 @@ class Location(db.Model):
         return self.name
 
 
-
 class Service(db.Model):
     __tablename__ = 'service'
     id = Column(Integer, primary_key=True)
     name = Column(String)
     prefix = Column(String, nullable=True)
+    is_offset_time = Column(Boolean, default=False)
+    offset_time = Column(Time, default=datetime.now().time().replace(hour=20, minute=00, second=00))
 
     def __str__(self):
         return self.name

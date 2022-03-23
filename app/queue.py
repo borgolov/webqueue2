@@ -10,6 +10,8 @@ class Ticket:
         self.create_time = datetime.now()
         self.service = service.id
         self.service_name = service.name
+        self.is_offset_time = service.is_offset_time
+        self.offset_time = service.offset_time
         self.operator_id = None
         self.status = 0 # 0 - in queue, 1 - taken_operator, 2 - delayed, 3 - discard
 
@@ -25,6 +27,8 @@ class Queue:
     def __init__(self, location: Location):
         self.id = location.id
         self.name = location.name
+        self.is_offset_time = location.is_offset_time
+        self.offset_time = location.offset_time
         self.tickets = []
         self.increment = 0
 

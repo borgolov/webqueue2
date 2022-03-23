@@ -268,7 +268,7 @@ def change_service_client(queues: list, data: dict):
 def clear_queue_on_time():
     """очистить очереди по времени"""
     while True:
-        now = datetime.datetime.now()
+        now = datetime.now()
         today8am = now.replace(hour=18, minute=35, second=0, microsecond=0)
         if now > today8am:
             for queue in queues:
