@@ -273,7 +273,7 @@ def clear_queue_on_time():
     while True:
         for queue in queues:
             now = datetime.now().time()
-            if queue.is_offset_time and queue.offset_time_down > now > queue.offset_time_up:
+            if queue.is_offset_time and not queue.offset_time_down < now < queue.offset_time_up:
                 queue.reset_queue()
                 print("cleaning queue {0} date: {1}".format(queue.name, datetime.now()))
         time.sleep(20)
