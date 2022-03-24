@@ -1,6 +1,6 @@
 import time
 from datetime import datetime
-from flask import redirect, session, request
+from flask import redirect, session, request, current_app
 from flask_login import login_user, current_user
 from flask_socketio import emit, join_room
 from .models import *
@@ -122,6 +122,9 @@ def take_ticket(queues: list, data: dict):
     resp = {"room_id": data["room"]}
     interactions = socket_interaction(queues)
     service = db.session.query(Service).filter(Service.id == data["service_id"]).first()
+    now = datetime.now().time()
+    if service.is_offset_time and not service.offset_time_down < now < service.offset_time_up:
+        return
     if interactions['queue'] and service:
         if find_key_dict('location', interactions):
             ticket = interactions['queue'].reg_ticket(service)
@@ -268,11 +271,9 @@ def change_service_client(queues: list, data: dict):
 def clear_queue_on_time():
     """очистить очереди по времени"""
     while True:
-        now = datetime.now()
-        today8am = now.replace(hour=18, minute=35, second=0, microsecond=0)
-        if now > today8am:
-            for queue in queues:
+        for queue in queues:
+            now = datetime.now().time()
+            if queue.is_offset_time and queue.offset_time_down > now > queue.offset_time_up:
                 queue.reset_queue()
-        else:
-            pass
+                print("cleaning queue {0} date: {1}".format(queue.name, datetime.now()))
         time.sleep(20)

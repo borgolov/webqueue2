@@ -11,7 +11,8 @@ class Ticket:
         self.service = service.id
         self.service_name = service.name
         self.is_offset_time = service.is_offset_time
-        self.offset_time = service.offset_time
+        self.offset_time_up = service.offset_time_up
+        self.offset_time_down = service.offset_time_down
         self.operator_id = None
         self.status = 0 # 0 - in queue, 1 - taken_operator, 2 - delayed, 3 - discard
 
@@ -28,7 +29,8 @@ class Queue:
         self.id = location.id
         self.name = location.name
         self.is_offset_time = location.is_offset_time
-        self.offset_time = location.offset_time
+        self.offset_time_up = location.offset_time_up
+        self.offset_time_down = location.offset_time_down
         self.tickets = []
         self.increment = 0
 
@@ -105,3 +107,11 @@ class Queue:
             if ticket.status == 1:
                 array.append(ticket)
         return array
+
+    def info_update(self):
+        location = db.session.query(Location).filter(Location.id == self.id).first()
+        if location:
+            self.name = location.name
+            self.is_offset_time = location.is_offset_time
+            self.offset_time_up = location.offset_time_up
+            self.offset_time_down = location.offset_time_down

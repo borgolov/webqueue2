@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import datetime
+
 from flask import Flask, render_template
 from .extensions import db, migrate, ma, socket_io, login_manager, adm, my_sessions, ma, queues
 from app import socket, models
@@ -93,8 +95,8 @@ def configure_logging(app):
 def create_queues():
     locations = db.session.query(Location).all()
     for locate in locations:
-        queue = Queue(locate)
-        queues.append(queue)
+        queu = Queue(locate)
+        queues.append(queu)
 
 
 def configure_error_handlers(app):
