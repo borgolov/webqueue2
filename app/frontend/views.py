@@ -11,7 +11,7 @@ from app.utils import *
 @frontend.route('/')
 @login_required
 def main():
-    return render_template('home.html', user=current_user.username)
+    return render_template('home.html', current_user=current_user)
 
 
 @frontend.route('/simple_chat')

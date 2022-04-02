@@ -48,7 +48,7 @@ class MyCustomNamespace(Namespace):
 
     @staticmethod
     def on_get_ticket(data):
-        pass
+        get_ticket(queues)
 
     @staticmethod
     def on_change_service_client(data):

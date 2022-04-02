@@ -5,7 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hello, {{user}}</h1>
+<h1>Hello, {{current_user.name}}</h1>
 <a href="/logout">exit</a>
+{% if current_user.has_role('superuser') %}
+<a href="/admin">admin panel</a>
+<a href="/screen">screen</a>
+<a href="/terminal">terminal</a>
+{% elif current_user.has_role('operator') %}
+<a href="/worker">worker</a>
+{% endif%}
 </body>
 </html>

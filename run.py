@@ -1,15 +1,11 @@
-import datetime
-
-from flask_migrate import Migrate
+#from flask_migrate import Migrate
 from threading import Thread
-import time
-
 from app import create_app
 from app.extensions import db, socket_io
 from app.utils import clear_queue_on_time
 
 app = create_app()
-migrate = Migrate(app, db)
+#migrate = Migrate(app, db)
 
 
 thread = Thread(target=clear_queue_on_time)
