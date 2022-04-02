@@ -137,14 +137,20 @@ def take_ticket(queues: list, data: dict):
     emit('for_testing', resp)
 
 
-def call_client(queues: list, data: dict):
+def get_ids_services_on_operator(operator: Operator):
+    """формирование сристка id услуг по оператору"""
+    service_pool = []
+    for service in operator.services:
+        service_pool.append(service.id)
+    return service_pool
+
+
+def call_client(queues: list, data: dict, state: int):
     """вызвать первого из очереди"""
     resp = {"room_id": data["room"]}
     interactions = socket_interaction(queues)
     if interactions['queue'] and interactions['operator']:
-        service_pool = []
-        for service in interactions['operator'].services:
-            service_pool.append(service.id)
+        service_pool = get_ids_services_on_operator(interactions['operator'])
         resp['operator'] = {
             'id': interactions['operator'].id,
             'name':  interactions['operator'].name,
@@ -158,7 +164,7 @@ def call_client(queues: list, data: dict):
             emit('for_testing', resp, room=request.sid)
             return
         else:
-            ticket = interactions['queue'].get_fifo_ticket(0, service_pool)
+            ticket = interactions['queue'].get_fifo_ticket(state, service_pool)
             if ticket:
                 interactions['queue'].take_service(ticket.id)
                 ticket.set_operator(interactions['operator'].id)
@@ -174,40 +180,6 @@ def call_client(queues: list, data: dict):
                 return
             resp["error"] = "ticket not found"
             emit('for_testing', resp, room=request.sid)
-
-
-def call_delay_client(queues: list, data: dict):
-    """вызвать отложенного из очереди"""
-    resp = {"room_id": data["room"]}
-    interactions = socket_interaction(queues)
-    if interactions['queue'] and interactions['operator']:
-        service_pool = []
-        for service in interactions['operator'].services:
-            service_pool.append(service.id)
-        resp['operator'] = {
-            'id': interactions['operator'].id,
-            'name': interactions['operator'].name,
-            'duber': interactions['operator'].duber
-        }
-        ticket = interactions['queue'].get_fifo_ticket(2, service_pool)
-        if ticket:
-            if not interactions['queue'].is_free_worker(interactions['operator'].id):
-                resp["error"] = "worker not free"
-                resp.update(make_resp_on_ticket(interactions['queue'].get_ticket_on_worker(interactions['operator'].id, 1)))
-                emit('for_testing', resp, room=request.sid)
-                return
-            interactions['queue'].take_service(ticket.id)
-            resp['operator'] = {'id': interactions['operator'].id, 'name': interactions['operator'].name}
-            ticket.set_operator(interactions['operator'].id)
-            resp.update(make_resp_on_ticket(ticket))
-            emit('for_testing', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
-            emit('for_testing', resp, room=request.sid)
-            emit('ticket', resp, room=request.sid)
-            emit('state', make_resp_on_queue(interactions['queue']), room=data['room'], broadcast=True)
-            emit('call_client', resp, room=interactions['room'], broadcast=True)
-            return
-    resp["error"] = "ticket not found"
-    emit('for_testing', resp, room=request.sid)
 
 
 def delay_client(queues: list, data: dict):
@@ -284,6 +256,7 @@ def get_ticket(queues: list):
                 emit('for_testing', resp, room=request.sid)
     emit('ticket', room=request.sid)
     emit('for_testing', resp, room=request.sid)
+
 
 def clear_queue_on_time():
     """очистить очереди по времени"""

@@ -24,12 +24,12 @@ class MyCustomNamespace(Namespace):
     @staticmethod
     def on_call_client(data):
         """событие вызова талона"""
-        call_client(queues, data)
+        call_client(queues, data, 0)
 
     @staticmethod
     def on_call_delay_client(data):
         """событие вызова талона"""
-        call_delay_client(queues, data)
+        call_client(queues, data, 2)
 
     @staticmethod
     def on_delay_client(data):
