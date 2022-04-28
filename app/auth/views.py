@@ -7,6 +7,11 @@ from app.auth import auth
 from app.utils import *
 
 
+@login_manager.unauthorized_handler
+def unauthorized_callback():
+    return redirect('/auth')
+
+
 @auth.route('/auth', methods=['POST', 'GET'])
 def login():
     """пользователь ранее был авторизован"""
