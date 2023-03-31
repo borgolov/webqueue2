@@ -1,5 +1,5 @@
 {
-  "DEBUG": false,
+  "DEBUG": true,
   "SECRET_KEY":"sfsdf213123fdsff5453rsdcxvfdfdg56y5rghyuk678rthrthfyhjuyi7u4tryrtyrtyrtyrty54663s",
   "EXPLAIN_TEMPLATE_LOADING": false,
   "SQLALCHEMY_DATABASE_URI":"sqlite:///sqlite3.db",

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
+import json
 
 from flask import Flask, render_template
 from .extensions import db, migrate, ma, socket_io, login_manager, adm, my_sessions, ma, queues
@@ -36,7 +37,7 @@ def configure_app(app, config=None):
     if config:
         app.config.from_json(config, silent=True)
     else:
-        app.config.from_json('settings.json', silent=True)
+        app.config.from_file('settings.json', load=json.load)
 
 
 def configure_extensions(app):
