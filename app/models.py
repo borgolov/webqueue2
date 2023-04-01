@@ -88,7 +88,7 @@ class Location(db.Model):
     is_offset_time = Column(Boolean, default=False)
     offset_time_up = Column(Time, default=datetime.now().time().replace(hour=20, minute=00, second=00))
     offset_time_down = Column(Time, default=datetime.now().time().replace(hour=7, minute=30, second=00))
-    services = relationship('Service', secondary=ServiceLocation, lazy='subquery', backref=db.backref('services', lazy=True))
+    services = relationship('Service', secondary=ServiceLocation, lazy='subquery', backref=db.backref('services', lazy='dynamic'))
     location_company = relationship('Company')
 
     def __str__(self):
