@@ -69,6 +69,14 @@ def worker():
     return render_template('worker.html')
 
 
+@frontend.route('/worker_new', methods=['POST', 'GET'])
+def worker_new():
+    if current_user.is_authenticated:
+        return render_template('worker_new.html')
+    else:
+        return redirect('/auth')
+
+
 @frontend.route('/ticket', methods=['GET'])
 def ticket_template():
     if request.args.get('template'):

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>My App</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendors/css/bulma.min.css') }}" type="text/css">
+        <!-- Vue 3 CDN -->
+        <script src="{{ url_for('static', filename='vendors/js/vue.global.prod.js') }}"></script>
+        <!-- Socket.IO CDN -->
+        <script src="{{ url_for('static', filename='vendors/js/socket.io.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendors/js/axios.min.js') }}"></script>
+    </head>
+    <body>
+        <div id="app" class="container">
+            <!-- Ваше приложение Vue -->
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-vertical block">
+                    <h1>{{ '{{ organization }}' }}</h1>
+                    <div class="buttons">
+                        <button class="button" v-on:click="call_client();">вызвать</button>
+                        <button class="button" v-on:click="confirm_client();">завершить</button>
+                        <button class="button" v-on:click="delay_client();">отложить</button>
+                        <button class="button" v-on:click="call_delay_client();">вызвать отложенного</button>
+                    </div>
+                    <p>сменить услугу</p>
+                    <div class="select">
+                        <select v-model="changed_service_id">
+                          <option v-for="item in services" :key="item.id">{{ '{{ item.name }}' }}</option>
+                        </select>
+                    </div>
+                    <button class="button" v-on:click="change_service_client(changed_service_id);">сменить</button>
+                </div>
+                <div class="tile is-vertical block">
+                    <h1>{{ '{{ location }}' }}</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Услуга</th>
+                                <th>Ожидающие</th>
+                                <th>Отложенные</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in stat.services" :key="item.service.id">
+                                <td>{{ '{{ item.service.name }}' }}</td>
+                                <td>{{ '{{ item.service.count }}' }}</td>
+                                <td>{{ '{{ item.service.count_delay }}' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <article v-for="item in stat.treatment" :key="item.operator.id" class="message is-info">
+                        <div class="message-header">
+                            <p>{{ '{{ item.ticket.prefix }}' }}{{ '{{ item.ticket.num }}' }}</p>
+                            <p>{{ '{{ item.ticket.service.name }}' }}</p>
+                        </div>
+                        <div class="message-body">
+                            <p>{{ '{{ item.operator.name }}' }}</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='worker_new/js/mainapp.js') }}"></script>
+    </body>
+</html>
