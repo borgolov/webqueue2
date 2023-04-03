@@ -1,0 +1,29 @@
+.screen {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    width: 35%;
+    background-color: #3e8ed0;
+    height: 100vh;
+}
+
+.rigth {
+    width: 65%;
+}
+
+.operator {
+    display: flex;
+    align-items: center;
+}
+
+.operator span {
+    display: block;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto;
+    font-size: 75px;
+    color: #f3fd68;
+}
