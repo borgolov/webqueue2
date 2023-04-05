@@ -21,13 +21,13 @@ const app = Vue.createApp({
                     id: 0,
                     name: "service"
                 }
-            }
+            },
+            modal: false,
         }
     },
     created() {
         this.socket = io('/queue');
         this.axios = axios
-        this.get_voices()
 
         setTimeout(this.init(), 1000)
 
@@ -36,6 +36,7 @@ const app = Vue.createApp({
         });
         this.socket.on('last_ticket', (data) => {
             this.last_ticket = data.ticket
+            this.show_modal()
             this.print_ticket()
         });
     },
@@ -50,11 +51,21 @@ const app = Vue.createApp({
                 console.log(error)
             })
         },
-        show_modal() {
+        take_ticket(servicce_id) {
             
+            this.socket.emit('take_ticket', {
+                service_id: servicce_id,
+                room: this.room_id
+            })
+        },
+        show_modal() {
+            this.modal = true;
+            setTimeout(() => {
+                this.modal = false;
+            }, 3000)
         },
         print_ticket() {
-            axios.get("/ticket?prefix=" + this.last_ticket.prefix + "&number=" + this.last_ticket.num + "&service_name=" + this.$store.getters.get_last_ticket.service.name + "&locate_name=" + this.$store.getters.get_location + "&date_create=" + this.last_ticket.time).then(resp => {
+            axios.get("/ticket?prefix=" + this.last_ticket.prefix + "&number=" + this.last_ticket.num + "&service_name=" + this.last_ticket.service.name + "&locate_name=" + this.location + "&date_create=" + this.last_ticket.time).then(resp => {
                 var options = {
                     printable: resp.data,
                     type: 'raw-html',

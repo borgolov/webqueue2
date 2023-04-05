@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>My App</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='vendors/css/bulma.min.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='screen_new/css/style.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='terminal_new/css/style.css') }}" type="text/css">
         <!-- Vue 3 CDN -->
         <script src="{{ url_for('static', filename='vendors/js/vue.global.prod.js') }}"></script>
         <!-- Socket.IO CDN -->
@@ -15,27 +15,19 @@
     <body>
         <div id="app">
             <!-- Ваше приложение Vue -->
-            <div class="screen">
-                <div class="left">
-                    <article class="notification is-info">
-                        <p class="title" @click="show_voices_select()">{{ '{{ organization }}' }}</p>
-                        <p class="subtitle">{{ '{{ location }}' }}</p>
-                        
-                    </article>
-                </div>
-                <div class="rigth">
-                    
+            <h1 class="title center">{{ '{{ location }}' }}</h1>
+            <p class="subtitle center">{{ '{{ organization }}' }}</p>
+            <div class="buttons_service">
+                <div class="button_service" v-for="item in services" :key="item.id" @click="take_ticket(item.id)">
+                    <p>{{ '{{ item.name }}' }}</p>
                 </div>
             </div>
-
-
             <div id="modal-js-example" class="modal is-active" v-if="modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
                     <div class="box" style="background: tomato;">
                         <div class="operator" style="width: 80%; margin: 0 auto;">
-                            <span>{{ '{{ last_notific.operator }}' }}</span>
-                            <span>{{ '{{ last_notific.ticket }}' }}</span>
+                            <span class="center modal_lable">{{ '{{ last_ticket.prefix }}' }}{{ '{{ last_ticket.num }}' }}</span>
                         </div>
                     </div>
                 </div>
