@@ -4,13 +4,16 @@
 }
 
 .left {
-    width: 35%;
+    width: 450px;
     background-color: #3e8ed0;
     height: 100vh;
 }
 
 .rigth {
-    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1
 }
 
 .operator {
@@ -26,4 +29,9 @@
     margin: 0 auto;
     font-size: 75px;
     color: #f3fd68;
+}
+
+.silder_screen {
+    width: 98%;
+    height: 75%;
 }
