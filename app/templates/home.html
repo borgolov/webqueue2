@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Web Queue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/css/bulma.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home/css/style.css') }}" type="text/css">
 </head>
 <body>
-<h1>Hello, {{current_user.name}}</h1>
-<a href="/logout">exit</a>
-{% if current_user.has_role('superuser') %}
-<a href="/admin">admin panel</a>
-<a href="/screen">screen</a>
-<a href="/terminal">terminal</a>
-{% elif current_user.has_role('operator') %}
-<a href="/worker">worker</a>
-{% endif%}
+    <h1 class="title" style="display: inline-block; text-align: center; padding: 10px;">Hello, {{current_user.name}}</h1>
+    <div class="main_buttons">
+        <a class="main_button" href="/logout"><p>exit</p></a>
+        {% if current_user.has_role('superuser') %}
+        <a class="main_button" href="/admin"><p>admin panel</p></a>
+        <a class="main_button" href="/screen_new"><p>screen</p></a>
+        <a class="main_button" href="/terminal_new"><p>terminal</p></a>
+        {% elif current_user.has_role('operator') %}
+        <a class="main_button" href="/worker_new"><p>worker</p></a>
+        {% endif%}
+    </div>
 </body>
 </html>
