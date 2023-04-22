@@ -24,23 +24,6 @@ def api_tester():
     return render_template('api_tester.html')
 
 
-@frontend.route('/terminal', methods=['POST', 'GET'])
-@login_required
-def terminal():
-    if not current_user.has_role('superuser'):
-        return "permition denied"
-    if request.method == 'POST' and 'inputSelect' in request.form:
-        location = db.session.query(Location).filter_by(id=request.form['inputDevice']).first()
-        if location:
-            session["location"] = location.id
-    if find_key_dict("location", session):
-        location = db.session.query(Location).filter(Location.id == session['location']).first()
-        if location:
-            return render_template('terminal.html')
-    locations = db.session.query(Location).all()
-    return render_template('device_reg_form.html', list=locations)
-
-
 @frontend.route('/terminal_new', methods=['POST', 'GET'])
 @login_required
 def terminal_new():
@@ -58,9 +41,9 @@ def terminal_new():
     return render_template('device_reg_form.html', list=locations)
 
 
-@frontend.route('/screen', methods=['POST', 'GET'])
+@frontend.route('/terminal_hybrid', methods=['POST', 'GET'])
 @login_required
-def screen():
+def terminal_hybrid():
     if not current_user.has_role('superuser'):
         return "permition denied"
     if request.method == 'POST' and 'inputSelect' in request.form:
@@ -70,7 +53,7 @@ def screen():
     if find_key_dict("location", session):
         location = db.session.query(Location).filter(Location.id == session['location']).first()
         if location:
-            return render_template('screen.html')
+            return render_template('terminal_hybrid.html')
     locations = db.session.query(Location).all()
     return render_template('device_reg_form.html', list=locations)
 
@@ -96,12 +79,6 @@ def screen_new():
 def exit_device():
     session.pop("location")
     return redirect('/')
-
-
-@frontend.route('/worker', methods=['POST', 'GET'])
-@login_required
-def worker():
-    return render_template('worker.html')
 
 
 @frontend.route('/worker_new', methods=['POST', 'GET'])

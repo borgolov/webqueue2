@@ -41,6 +41,7 @@ const app = Vue.createApp({
         this.socket.on('state', (data) => {
             this.stat = data
         });
+        setTimeout(this.set_voic(), 1000)
     },
     methods: {
         init() {
@@ -97,6 +98,15 @@ const app = Vue.createApp({
                 return
             }
             this.isselectvoice = false;
+        },
+
+        set_voic() {
+            for (let i = 0; i < this.voices.length; i++) {
+                if (this.voices[i].name === 'Google русский') {
+                    this.voic = voices[i];
+                    break;
+                }
+            }
         }
     }
 });

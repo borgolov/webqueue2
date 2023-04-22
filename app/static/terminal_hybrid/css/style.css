@@ -1,0 +1,71 @@
+.buttons_service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button_service {
+    cursor: pointer;
+    background-color: #3e8ed0;
+    color: white;
+    border-radius: 15px;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.button_service p {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 35px;
+}
+
+.button_service:active {
+    transition: 0.3s;
+    background-color: tomato;
+    color: yellow;
+}
+
+.center {
+    display: block;
+    padding: 15px;
+    text-align: center;
+}
+
+.modal_lable {
+    font-size: 70px;
+    color: yellow;
+}
+
+.operator {
+    display: flex;
+    align-items: center;
+}
+
+.operator span {
+    display: block;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto;
+    font-size: 40px;
+    color: #f3fd68;
+}
+
+#app {
+    display: flex;
+}
+
+.left {
+    width: 400px;
+    background-color: #3e8ed0;
+    height: 100vh;
+}
+
+.rigth {
+
+    flex-grow: 1
+}
