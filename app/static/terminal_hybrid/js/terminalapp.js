@@ -23,6 +23,7 @@ const app = Vue.createApp({
                 }
             },
             modal: false,
+            modal_text: "",
 
             stat: {},
             notifiations: [],
@@ -55,6 +56,7 @@ const app = Vue.createApp({
         });
         this.socket.on('last_ticket', (data) => {
             this.last_ticket = data.ticket
+            this.modal_text = this.last_ticket.prefix + ' ' + this.last_ticket.num
             this.show_modal()
             this.print_ticket()
         });
@@ -78,6 +80,12 @@ const app = Vue.createApp({
             })
         },
         take_ticket(servicce_id) {
+
+            if (this.checkTime(servicce_id) == false) {
+                this.show_modal()
+                return
+            }
+
             this.show_voices_select()
             this.socket.emit('take_ticket', {
                 service_id: servicce_id,
@@ -149,6 +157,34 @@ const app = Vue.createApp({
             }
             this.isselectvoice = false;
         },
+
+        convert_string_to_date(timeStr) {
+            var [hours, minutes, seconds] = timeStr.split(':')
+            var dateObj = new Date()
+            dateObj.setHours(hours)
+            dateObj.setMinutes(minutes)
+            dateObj.setSeconds(seconds)
+            return dateObj
+        },
+
+        checkTime(service_id) {
+            if (this.services.is_offset_time == false) {
+                return false
+            }
+            var_service = this.services.filter(service => service.id == service_id)[0]
+
+            var startTime = this.convert_string_to_date(var_service.offset_time_down)
+            var endTime = this.convert_string_to_date(var_service.offset_time_up)
+            var currentTime = new Date()
+
+            if (currentTime >= startTime && currentTime <= endTime) {
+                return true
+            }
+            else {
+                this.modal_text = "Данная услуга оказывается с " + var_service.offset_time_down + " - " + var_service.offset_time_up
+                return false
+            }
+        }
     }
 });
 app.mount('#app');
