@@ -34,6 +34,6 @@ def load_user(user_id):
 @login_required
 def logout():
     logout_user()
-    if session['location']:
+    if 'location' in session:
         session.pop("location")
     return redirect('/auth')

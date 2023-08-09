@@ -4,7 +4,7 @@
 }
 
 .left {
-    width: 450px;
+    width: 600px;
     background-color: #3e8ed0;
     height: 100vh;
 }
@@ -27,7 +27,7 @@
     width: -moz-max-content;
     width: max-content;
     margin: 0 auto;
-    font-size: 75px;
+    font-size: 70px;
     color: #f3fd68;
 }
 

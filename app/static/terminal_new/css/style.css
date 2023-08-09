@@ -10,11 +10,12 @@
     background-color: #3e8ed0;
     color: white;
     border-radius: 15px;
-    min-width: 600px;
-    height: 300px;
+    min-width: 400px;
+    height: 200px;
     display: flex;
     align-items: center;
     margin: 10px;
+    padding: 1em;
 }
 
 .button_service p {

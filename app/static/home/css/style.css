@@ -24,7 +24,7 @@
     font-size: 35px;
 }
 
-.main_buttons:active {
+.main_button:active {
     transition: 0.3s;
     background-color: tomato;
     color: yellow;
