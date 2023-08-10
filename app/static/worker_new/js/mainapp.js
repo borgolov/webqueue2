@@ -8,7 +8,7 @@ const app = Vue.createApp({
             room_id: null,
             location: "location",
             organization: "organiztion",
-            urls: ["/api/v1/operator_settings"],
+            urls: ["/api/v1/operator_settings", "/static/worker_new/image/push.png"],
             operator: {},
             last_ticket: {
                 num: 0,
@@ -31,6 +31,7 @@ const app = Vue.createApp({
             stat: {},
             services: [],
             changed_service_id: 0,
+            is_call_client: true,
         }
     },
     created() {
@@ -48,6 +49,9 @@ const app = Vue.createApp({
         this.socket.on('ticket', (data) => {
             this.current_ticket = null === data || void 0 === data ? void 0 : data.ticket
         });
+        this.socket.on('newticket', (data) => {
+            this.push(data?.ticket?.service?.name)
+        });
     },
     methods: {
 
@@ -63,9 +67,15 @@ const app = Vue.createApp({
             });
         },
         call_client() {
-            this.socket.emit('call_client', {
-                room: this.room_id
-            })
+            if (this.is_call_client){
+                this.is_call_client = false
+                this.socket.emit('call_client', {
+                    room: this.room_id
+                })
+                setTimeout(() => {
+                    this.is_call_client = true
+                }, 3000)
+            }
         },
         confirm_client() {
             if (confirm("выполнить?")) {
@@ -95,6 +105,30 @@ const app = Vue.createApp({
                     room: this.room_id,
                     service_id: service_id
                 })
+            }
+        },
+        push(service) {
+            if ('Notification' in window) {
+                // Проверяем, разрешено ли показывать уведомления
+                if (Notification.permission === 'granted') {
+                    // Создаем новое уведомление
+                    const notification = new Notification('Заголовок уведомления', {
+                        body: 'Новый талон с услугой: '+service,
+                        icon: this.urls[1], // путь к изображению для иконки уведомления (опционально)
+                    });
+                    // Обработчик клика на уведомлении
+                    notification.onclick = function () {
+                        console.log('Уведомление было кликнуто');
+                    };
+                } else if (Notification.permission !== 'denied') {
+                    // Если разрешение не получено, запрашиваем его у пользователя
+                    Notification.requestPermission().then(function (permission) {
+                        if (permission === 'granted') {
+                            // Повторно создаем уведомление после получения разрешения
+                            // ...
+                        }
+                    });
+                }
             }
         }
     }

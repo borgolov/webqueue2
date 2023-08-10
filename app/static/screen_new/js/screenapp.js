@@ -11,7 +11,11 @@ const app = Vue.createApp({
                 id: null,
                 name: "device_name"
             },
-            urls: ["/api/v1/device_settings", "http://192.168.3.249/slider_reg"],
+            urls: [
+                "/api/v1/device_settings", 
+                "http://192.168.3.249/slider_reg", 
+                "/static/screen_new/sound/screen.wav"
+            ],
             last_notific: {
                 operator: '',
                 ticket: ''
@@ -55,26 +59,29 @@ const app = Vue.createApp({
         },
         show_modal() {
             var notific = this.notifiations[0]
-            this.last_notific.operator = notific.operator.name
-            this.last_notific.ticket = notific.ticket.prefix + notific.ticket.num
+            this.last_notific.operator = notific?.operator?.name
+            this.last_notific.ticket = notific?.ticket.prefix + notific?.ticket.num
             if (this.notifiations.length > 0 && this.modal == false) {
                 this.modal = true
-                if (this.voic != null){
-                    this.voice(notific, this.last_notific.ticket)
-                }
-                else {
-                    setTimeout(() => {
-                        this.modal = false
-                        this.notifiations.shift()
+                this.suound_signal(() => {
+                    if (this.voic != null){
+                        this.voice(notific, this.last_notific.ticket)
+                    }
+                    else {
                         setTimeout(() => {
-                            this.show_modal()
-                        }, 500)
-                  }, 3000)
-                }
+                            this.modal = false
+                            this.notifiations.shift()
+                            setTimeout(() => {
+                                this.show_modal()
+                            }, 500)
+                      }, 3000)
+                    }
+                })
+                
             }
         },
         voice(notific, string) {
-            this.utterance = new SpeechSynthesisUtterance(notific.operator?.duber.replace('@', string))
+            this.utterance = new SpeechSynthesisUtterance(notific?.operator?.duber.replace('@', string))
             this.utterance.addEventListener('end', () => {
                 this.notifiations.shift()
                 this.modal = false;
@@ -99,7 +106,6 @@ const app = Vue.createApp({
             }
             this.isselectvoice = false;
         },
-
         set_voic() {
             for (let i = 0; i < this.voices.length; i++) {
                 if (this.voices[i].name === 'Google русский') {
@@ -107,6 +113,17 @@ const app = Vue.createApp({
                     break;
                 }
             }
+        },
+        suound_signal(callback) {
+            const audio = new Audio(this.urls[2]);
+            // Добавляем обработчик события ended
+            audio.addEventListener('ended', function () {
+                // Этот код будет выполнен после завершения воспроизведения аудио
+                console.log('Звук закончился');
+                callback();
+            });
+            // Воспроизводим звук
+            audio.play();
         }
     }
 });

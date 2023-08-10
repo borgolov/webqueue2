@@ -130,6 +130,7 @@ def take_ticket(queues: list, data: dict):
             emit('state', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
             emit('for_testing', resp)
             emit('for_testing', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
+            emit('newticket', resp, room=interactions['room'], broadcast=True)
             return
     resp["room_id"] = data["room"]
     resp["error"] = "services not found"
