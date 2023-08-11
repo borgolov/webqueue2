@@ -14,7 +14,7 @@ const app = Vue.createApp({
             urls: [
                 "/api/v1/device_settings", 
                 "http://192.168.3.249/slider_reg", 
-                "/static/screen_new/sound/screen.wav"
+                "/static/screen_new/sound/screen.mp3"
             ],
             last_notific: {
                 operator: '',
