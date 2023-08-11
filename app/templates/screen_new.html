@@ -22,6 +22,8 @@
                         <select v-model="voic" v-if="isselectvoice">
                             <option v-for="item in voices" :key="item" :value="item">{{ '{{ item.name }}' }}</option>
                         </select>
+                        <span v-if="isselectvoice">звук оповещения</span>
+                        <input type="checkbox" v-model="is_screen_sound" v-if="isselectvoice">
                     </article>
                     <div class="operator" v-for="item in stat.treatment" :key="item.ticket.id" style="width: 80%; margin: 0 auto;">
                         <span>{{ '{{ item.operator.name }}' }}</span>
@@ -36,17 +38,18 @@
 
             <div id="modal-js-example" class="modal is-active" v-if="modal">
                 <div class="modal-background"></div>
-                <div class="modal-content">
-                    <div class="box" style="background: tomato;">
-                        <div class="operator" style="width: 80%; margin: 0 auto;">
-                            <span>{{ '{{ last_notific.operator }}' }}</span>
-                            <span>{{ '{{ last_notific.ticket }}' }}</span>
+                    <div class="modal-content">
+                        <div class="box" style="background: tomato;">
+                            <div class="modal_cont" style="margin: 0 auto;">
+                                <span>{{ '{{ last_notific.operator }}' }}</span>
+                                <span>  |   </span>
+                                <span>{{ '{{ last_notific.ticket }}' }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <button class="modal-close is-large" aria-label="close"></button>
-              </div>
-        </div>
+                </div>
+            </div>
         <script src="{{ url_for('static', filename='screen_new/js/screenapp.js') }}"></script>
     </body>
 </html>

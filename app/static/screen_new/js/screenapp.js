@@ -28,7 +28,8 @@ const app = Vue.createApp({
             voices: [],
             voic: null,
             utterance: null,
-            isselectvoice: false
+            isselectvoice: false,
+            is_screen_sound: true,
         }
     },
     created() {
@@ -74,10 +75,9 @@ const app = Vue.createApp({
                             setTimeout(() => {
                                 this.show_modal()
                             }, 500)
-                      }, 3000)
+                        }, 3000)
                     }
-                })
-                
+                })          
             }
         },
         voice(notific, string) {
@@ -90,6 +90,7 @@ const app = Vue.createApp({
                 }, 500)
             })
             this.utterance.voice = this.voic;
+            this.utterance.rate = 0.8;
             speechSynthesis.speak(this.utterance);
         },
         cli() {
@@ -123,7 +124,13 @@ const app = Vue.createApp({
                 callback();
             });
             // Воспроизводим звук
-            audio.play();
+            audio.volume = 0.2;
+            if (this.is_screen_sound){
+                audio.play();
+            }
+            else {
+                callback();
+            }
         }
     }
 });

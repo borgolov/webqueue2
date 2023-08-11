@@ -27,11 +27,27 @@
     width: -moz-max-content;
     width: max-content;
     margin: 0 auto;
-    font-size: 70px;
-    color: #f3fd68;
+    font-size: 80px;
+    color: #1b1574;
 }
 
 .silder_screen {
     width: 98%;
     height: 75%;
 }
+
+.modal_cont {
+    display: block;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto;
+    font-size: 200px;
+    color: #f3fd68;
+    padding: 1em;
+}
+
+.modal-content {
+    width: max-content;
+}
+
