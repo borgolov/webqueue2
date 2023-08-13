@@ -120,7 +120,8 @@ const app = Vue.createApp({
                     notification.onclick = function () {
                         console.log('Уведомление было кликнуто');
                     };
-                } else if (Notification.permission !== 'denied') {
+                } 
+                else if (Notification.permission !== 'denied') {
                     // Если разрешение не получено, запрашиваем его у пользователя
                     Notification.requestPermission().then(function (permission) {
                         if (permission === 'granted') {

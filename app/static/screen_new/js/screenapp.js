@@ -3,7 +3,6 @@ const app = Vue.createApp({
         return {
             socket: null,
             axios: null,
-
             room_id: "",
             location: "location",
             organization: "organiztion",
@@ -22,14 +21,21 @@ const app = Vue.createApp({
             },
             notifiations: [],
             stat: {},
-
             modal: false,
             settings: !1,
             voices: [],
             voic: null,
             utterance: null,
-            isselectvoice: false,
             is_screen_sound: true,
+            modal_settings: false,
+            voice_settings: {
+                volume: 1,
+                rate: 1,
+                pitch:1
+            },
+            audio_settings: {
+                volume: 1
+            }
         }
     },
     created() {
@@ -90,7 +96,9 @@ const app = Vue.createApp({
                 }, 500)
             })
             this.utterance.voice = this.voic;
-            this.utterance.rate = 0.8;
+            this.utterance.volume = this.voice_settings.volume;
+            this.utterance.pitch = this.voice_settings.pitch;
+            this.utterance.rate = this.voice_settings.rate;
             speechSynthesis.speak(this.utterance);
         },
         cli() {
@@ -101,11 +109,11 @@ const app = Vue.createApp({
         },
         show_voices_select() {
             this.get_voices()
-            if (!this.isselectvoice) {
-                this.isselectvoice = true;
+            if (!this.modal_settings) {
+                this.modal_settings = true;
                 return
             }
-            this.isselectvoice = false;
+            this.modal_settings = false;
         },
         set_voic() {
             for (let i = 0; i < this.voices.length; i++) {
@@ -124,7 +132,7 @@ const app = Vue.createApp({
                 callback();
             });
             // Воспроизводим звук
-            audio.volume = 0.2;
+            audio.volume = this.audio_settings.volume;
             if (this.is_screen_sound){
                 audio.play();
             }

@@ -19,11 +19,6 @@
                     <article class="notification is-info">
                         <p class="title" @click="show_voices_select()">{{ '{{ organization }}' }}</p>
                         <p class="subtitle">{{ '{{ location }}' }}</p>
-                        <select v-model="voic" v-if="isselectvoice">
-                            <option v-for="item in voices" :key="item" :value="item">{{ '{{ item.name }}' }}</option>
-                        </select>
-                        <span v-if="isselectvoice">звук оповещения</span>
-                        <input type="checkbox" v-model="is_screen_sound" v-if="isselectvoice">
                     </article>
                     <div class="operator" v-for="item in stat.treatment" :key="item.ticket.id" style="width: 80%; margin: 0 auto;">
                         <span>{{ '{{ item.operator.name }}' }}</span>
@@ -48,7 +43,58 @@
                         </div>
                     </div>
                 <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+
+            <div class="modal is-active" v-if="modal_settings">
+                <div class="modal-background" @click="show_voices_select()"></div>
+                <div class="modal-content">
+                    <form class="box" style="background-color: white;">
+                        <div class="field">
+                            <label class="label">voices</label>
+                            <div class="control">
+                              <div class="select">
+                                <select v-model="voic">
+                                    <option v-for="item in voices" :key="item" :value="item">{{ '{{ item.name }}' }}</option>
+                                </select>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">voice volume</label>
+                            <div class="control">
+                              <input class="input" type="range" placeholder="Text input" min="0.1" max="1" step="0.1" v-model="voice_settings.volume">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">voice rate</label>
+                            <div class="control">
+                              <input class="input" type="range" placeholder="Text input" min="0.1" max="2" step="0.1" v-model="voice_settings.rate">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">voice pitch</label>
+                            <div class="control">
+                              <input class="input" type="range" placeholder="Text input" min="0.1" max="2" step="0.1" v-model="voice_settings.pitch">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                              <label class="checkbox">
+                                <input type="checkbox" v-model="is_screen_sound">
+                                notification sound signal
+                              </label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">notification sound signal volume</label>
+                            <div class="control">
+                              <input class="input" type="range" placeholder="Text input" min="0.1" max="1" step="0.1" v-model="audio_settings.volume">
+                            </div>
+                        </div>
+                    </form>
                 </div>
+            </div>
+
             </div>
         <script src="{{ url_for('static', filename='screen_new/js/screenapp.js') }}"></script>
     </body>
