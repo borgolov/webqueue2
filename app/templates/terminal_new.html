@@ -18,7 +18,7 @@
             <h1 class="title center">{{ '{{ location }}' }}</h1>
             <p class="subtitle center">{{ '{{ organization }}' }}</p>
             <div class="buttons_service">
-                <div class="button_service" v-for="item in services" :key="item.id" @click="take_ticket(item.id)">
+                <div class="button_service noselect" v-for="item in services" :key="item.id" @click="take_ticket(item.id)">
                     <p>{{ '{{ item.name }}' }}</p>
                 </div>
             </div>
