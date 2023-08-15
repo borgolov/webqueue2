@@ -3,6 +3,9 @@ from app import adm, db
 from flask import (Blueprint, render_template, request,
     current_app, send_from_directory, redirect, url_for)
 from flask_admin import expose
+from flask_admin.form import SecureForm
+from wtforms import PasswordField
+from wtforms.validators import DataRequired
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import AdminIndexView
 from flask_login import current_user
@@ -43,7 +46,23 @@ class MyAdminIndexView(AdminIndexView):
         return redirect('/auth')
 
 
-adm.add_view(MicroBlogModelView(User, db.session))
+class UserView(ModelView):
+    
+    form_base_class = SecureForm
+    column_list = ['name', 'active', 'username']
+    column_editable_list = ['name', 'active', 'username']
+    form_columns = ['name', 'active', 'username', 'password']
+    form_extra_fields = {
+        'password': PasswordField('Password')
+    }
+
+    def on_model_change(self, form, model, is_created):
+        # Если поле пароля было заполнено в форме, обновляем хэш пароля
+        if form.password.data:
+            model.set_password(form.password.data)
+
+
+adm.add_view(UserView(User, db.session))
 adm.add_view(MicroBlogModelView(Company, db.session))
 adm.add_view(MicroBlogModelView(Role, db.session))
 adm.add_view(MicroBlogModelView(Location, db.session))
