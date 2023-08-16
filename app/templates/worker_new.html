@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>My App</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='vendors/css/bulma.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='worker_new/css/style.css') }}" type="text/css">
         <!-- Vue 3 CDN -->
         <script src="{{ url_for('static', filename='vendors/js/vue.global.prod.js') }}"></script>
         <!-- Socket.IO CDN -->
@@ -48,6 +49,12 @@
                                 </div>
                                 <button class="button" v-on:click="change_service_client(changed_service_id);">сменить</button>
                             </p>
+                        </div>
+                        <div v-for="item in stat.treatment" :key="item.operator.id">
+                            <div class="box current_ticket" v-if="item.operator.id === operator.id">
+                                <h1>{{ '{{ item.ticket.prefix }}' }}{{ '{{ item.ticket.num }}' }}</h1>
+                                <p>{{ '{{ item.ticket.service.name }}' }}</p>
+                            </div>
                         </div>
                         <div class="content">
                           <!-- Content -->
