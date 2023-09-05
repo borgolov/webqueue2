@@ -21,8 +21,8 @@
                         <p class="subtitle">{{ '{{ location }}' }}</p>
                     </article>
                     <div class="operator" v-for="item in stat.treatment" :key="item.ticket.id" style="width: 80%; margin: 0 auto;">
-                        <span>{{ '{{ item.operator.name }}' }}</span>
-                        <span style="color: red">{{ '{{ item.ticket.prefix }}' }}{{ '{{ item.ticket.num }}' }}</span>
+                        <span>{{ '{{ item.operator.name }}' }} |</span>
+                        <span style="color: red">{{ '{{ item.ticket.prefix }}' }}{{ '{{ item.ticket.num }}' }}000</span>
                     </div>
                 </div>
                 <div class="rigth">
