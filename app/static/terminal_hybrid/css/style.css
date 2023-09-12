@@ -14,6 +14,8 @@
     display: flex;
     align-items: center;
     margin: 10px;
+    height: 150px;
+    min-width: 400px;
 }
 
 .button_service p {
@@ -51,7 +53,7 @@
     width: -moz-max-content;
     width: max-content;
     margin: 0 auto;
-    font-size: 40px;
+    font-size: 45px;
     color: #f3fd68;
 }
 
