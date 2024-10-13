@@ -1,11 +1,14 @@
 from datetime import datetime
 from dataclasses import dataclass
-from sqlalchemy import sql, Column, CHAR, String, Integer, Time, Boolean, DateTime, ForeignKey
+from sqlalchemy import sql, Column, CHAR, String, Integer, Time, Boolean, DateTime, ForeignKey, Enum
 from sqlalchemy.orm import relationship, backref
 from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_security import RoleMixin
 from app import db
+
+
+weekdays = Enum('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', name='weekdays')
 
 
 roles_users = db.Table(
@@ -63,10 +66,25 @@ class User(db.Model, UserMixin):
         return self.username
 
 
-ServiceLocation = db.Table('service_location',
-    db.Column('service', db.Integer, db.ForeignKey('service.id'), primary_key=True),
-    db.Column('location', db.Integer, db.ForeignKey('location.id'), primary_key=True)
-)
+#ServiceLocation = db.Table('service_location',
+#    db.Column('service', db.Integer, db.ForeignKey('service.id'), primary_key=True),
+#    db.Column('location', db.Integer, db.ForeignKey('location.id'), primary_key=True),
+#    db.Column('priority', db.Integer, nullable=True, default=0)
+#)
+
+
+class ServiceLocation(db.Model):
+    __tablename__ = 'service_location'
+
+    service = db.Column(db.Integer, db.ForeignKey('service.id'), primary_key=True)
+    location = db.Column(db.Integer, db.ForeignKey('location.id'), primary_key=True)
+    priority = db.Column(db.Integer, nullable=True, default=0)
+
+    service_rel = db.relationship('Service', backref=db.backref('service_locations', lazy='dynamic'))
+    location_rel = db.relationship('Location', backref=db.backref('service_locations', lazy='dynamic'))
+
+    def __str__(self):
+        return self.service_rel.name
 
 
 class Company(db.Model):
@@ -85,14 +103,19 @@ class Location(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     company = Column(Integer, ForeignKey('company.id', ondelete='CASCADE'), nullable=True)
-    is_offset_time = Column(Boolean, default=False)
-    offset_time_up = Column(Time, default=datetime.now().time().replace(hour=20, minute=00, second=00))
-    offset_time_down = Column(Time, default=datetime.now().time().replace(hour=7, minute=30, second=00))
-    services = relationship('Service', secondary=ServiceLocation, lazy='subquery', backref=db.backref('services', lazy='dynamic'))
+    #is_offset_time = Column(Boolean, default=False)
+    #offset_time_up = Column(Time, default=datetime.now().time().replace(hour=20, minute=00, second=00))
+    #offset_time_down = Column(Time, default=datetime.now().time().replace(hour=7, minute=30, second=00))
+    #services = relationship('Service', secondary=ServiceLocation, lazy='subquery', backref=db.backref('services', lazy='dynamic'))
     location_company = relationship('Company')
+    #service_locations = relationship('ServiceLocation', back_populates='location')
 
     def __str__(self):
         return self.name
+    
+    @property
+    def services(self):
+        return [service_location.service for service_location in self.service_locations]
 
 
 class Service(db.Model):
@@ -100,12 +123,28 @@ class Service(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     prefix = Column(String, nullable=True)
-    is_offset_time = Column(Boolean, default=False)
-    offset_time_up = Column(Time, default=datetime.now().time().replace(hour=20, minute=00, second=00))
-    offset_time_down = Column(Time, default=datetime.now().time().replace(hour=7, minute=30, second=00))
+    #is_offset_time = Column(Boolean, default=False)
+    #offset_time_up = Column(Time, default=datetime.now().time().replace(hour=20, minute=00, second=00))
+    #offset_time_down = Column(Time, default=datetime.now().time().replace(hour=7, minute=30, second=00))
 
     def __str__(self):
         return self.name
+    
+
+class ServiceLocationOffset(db.Model):
+    __tablename__ = 'service_location_offset'
+    id = db.Column(db.Integer, primary_key=True)
+    service_id = db.Column(db.Integer, db.ForeignKey('service.id'), nullable=False)
+    location_id = db.Column(db.Integer, db.ForeignKey('location.id'), nullable=False)
+    day_of_week = db.Column(weekdays, nullable=False)
+    offset_time_up = db.Column(db.Time, nullable=False)
+    offset_time_down = db.Column(db.Time, nullable=False)
+
+    service = db.relationship('Service', backref=db.backref('location_offsets', lazy='dynamic'))
+    location = db.relationship('Location', backref=db.backref('service_offsets', lazy='dynamic'))
+
+    def __str__(self):
+        return f"ServiceLocationOffset for {self.service.name} at {self.location.name} on {self.day_of_week}"
 
 
 class Operator(db.Model):

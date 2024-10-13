@@ -28,9 +28,9 @@ class Queue:
     def __init__(self, location: Location):
         self.id = location.id
         self.name = location.name
-        self.is_offset_time = location.is_offset_time
-        self.offset_time_up = location.offset_time_up
-        self.offset_time_down = location.offset_time_down
+        #self.is_offset_time = location.is_offset_time
+        #self.offset_time_up = location.offset_time_up
+        #self.offset_time_down = location.offset_time_down
         self.tickets = []
         self.increment = 0
 
