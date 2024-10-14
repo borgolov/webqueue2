@@ -78,7 +78,7 @@ class ServiceLocation(db.Model):
 
     service = db.Column(db.Integer, db.ForeignKey('service.id'), primary_key=True)
     location = db.Column(db.Integer, db.ForeignKey('location.id'), primary_key=True)
-    priority = db.Column(db.Integer, nullable=True, default=0)
+    #priority = db.Column(db.Integer, nullable=True, default=0)
 
     service_rel = db.relationship('Service', backref=db.backref('service_locations', lazy='dynamic'))
     location_rel = db.relationship('Location', backref=db.backref('service_locations', lazy='dynamic'))
@@ -136,6 +136,7 @@ class ServiceLocationOffset(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     service_id = db.Column(db.Integer, db.ForeignKey('service.id'), nullable=False)
     location_id = db.Column(db.Integer, db.ForeignKey('location.id'), nullable=False)
+    priority = db.Column(db.Integer, nullable=True, default=0)
     day_of_week = db.Column(weekdays, nullable=False)
     offset_time_up = db.Column(db.Time, nullable=False)
     offset_time_down = db.Column(db.Time, nullable=False)

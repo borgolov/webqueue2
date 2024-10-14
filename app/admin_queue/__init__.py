@@ -63,42 +63,6 @@ class UserView(ModelView):
             model.set_password(form.password.data)
 
 
-class ServiceLocationForm(Form):
-    service = SelectField('Service', coerce=int, validators=[DataRequired()])
-    location = SelectField('Location', coerce=int, validators=[DataRequired()])
-    priority = IntegerField('Priority')
-
-class ServiceLocationView(ModelView):
-    form = ServiceLocationForm
-    column_list = ('service_rel', 'location_rel', 'priority')
-    column_labels = {
-        'service_rel': 'Service',
-        'location_rel': 'Location',
-        'priority': 'Priority'
-    }
-
-    def __init__(self, session, **kwargs):
-        super(ServiceLocationView, self).__init__(ServiceLocation, session, **kwargs)
-
-    def scaffold_form(self):
-        form_class = super(ServiceLocationView, self).scaffold_form()
-        form_class.service = SelectField('Service', coerce=int, validators=[DataRequired()])
-        form_class.location = SelectField('Location', coerce=int, validators=[DataRequired()])
-        form_class.priority = IntegerField('Priority')
-        return form_class
-
-    def on_model_change(self, form, model, is_created):
-        model.service = form.service.data
-        model.location = form.location.data
-        model.priority = form.priority.data
-
-    def on_form_prefill(self, form, id):
-        model = self.get_one(id)
-        form.service.data = model.service
-        form.location.data = model.location
-        form.priority.data = model.priority
-
-
 adm.add_view(UserView(User, db.session))
 adm.add_view(MicroBlogModelView(Company, db.session))
 adm.add_view(MicroBlogModelView(Role, db.session))
@@ -106,4 +70,3 @@ adm.add_view(MicroBlogModelView(Location, db.session))
 adm.add_view(MicroBlogModelView(Service, db.session))
 adm.add_view(OperatorView(Operator, db.session))
 adm.add_view(MicroBlogModelView(ServiceLocationOffset, db.session))
-adm.add_view(ServiceLocationView(db.session))

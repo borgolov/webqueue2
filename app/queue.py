@@ -10,9 +10,9 @@ class Ticket:
         self.create_time = datetime.now()
         self.service = service.id
         self.service_name = service.name
-        self.is_offset_time = service.is_offset_time
-        self.offset_time_up = service.offset_time_up
-        self.offset_time_down = service.offset_time_down
+        #self.is_offset_time = service.is_offset_time
+        #self.offset_time_up = service.offset_time_up
+        #self.offset_time_down = service.offset_time_down
         self.operator_id = None
         self.status = 0 # 0 - in queue, 1 - taken_operator, 2 - delayed, 3 - discard
 

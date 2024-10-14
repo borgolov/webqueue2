@@ -29,6 +29,7 @@ class TerminalResource(Resource):
             resp["organization"] = query.location_company.name
             resp["location"] = query.name
             resp["services"] = service_schema.dump(query.services)
+            print(resp["services"])
         return resp
 
 
