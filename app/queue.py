@@ -3,7 +3,7 @@ from .models import *
 
 
 class Ticket:
-    def __init__(self, service: Service, num):
+    def __init__(self, service: Service, num, priority = 0):
         self.id = uuid.uuid4()
         self.num = num
         self.prefix = service.prefix
@@ -15,6 +15,7 @@ class Ticket:
         #self.offset_time_down = service.offset_time_down
         self.operator_id = None
         self.status = 0 # 0 - in queue, 1 - taken_operator, 2 - delayed, 3 - discard
+        self.priority = priority
 
     def set_operator(self, id=None):
         self.operator_id = id
@@ -58,9 +59,9 @@ class Queue:
             if ticket.operator_id == worker_id and ticket.status == status:
                 return ticket
 
-    def reg_ticket(self, service: Service):
+    def reg_ticket(self, service: Service, priority = 0):
         self.increment += 1
-        ticket = Ticket(service, self.increment)
+        ticket = Ticket(service, self.increment, priority)
         self.tickets.append(ticket)
         return ticket
 
@@ -84,6 +85,13 @@ class Queue:
 
     def get_fifo_ticket(self, status, service_pool: list):
         for ticket in self.tickets:
+            if ticket.status == status:
+                if set([ticket.service]).issubset({service for service in service_pool}):
+                    return ticket
+                
+    def get_fifo_ticket_priority(self, status, service_pool: list):
+        sorted_tickets = sorted(self.tickets, key=lambda ticket: (ticket.priority, ticket.create_time))
+        for ticket in sorted_tickets:
             if ticket.status == status:
                 if set([ticket.service]).issubset({service for service in service_pool}):
                     return ticket

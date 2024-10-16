@@ -115,7 +115,7 @@ class Location(db.Model):
     
     @property
     def services(self):
-        return [service_location.service for service_location in self.service_locations]
+        return [service_location.service_rel for service_location in self.service_locations]
 
 
 class Service(db.Model):
