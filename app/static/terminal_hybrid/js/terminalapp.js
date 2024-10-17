@@ -36,6 +36,7 @@ const app = Vue.createApp({
                 operator: '',
                 ticket: ''
             },
+            priority: 0
         }
     },
     created() {
@@ -168,20 +169,32 @@ const app = Vue.createApp({
         },
 
         checkTime(service_id) {
-            if (this.services.is_offset_time == false) {
-                return false
-            }
+            //получение текущего дня недели
+            currentDate = new Date();
+            currentDayOfWeek = currentDate.toLocaleString('en-US', { weekday: 'long' })
+
+            //получение услуги
             var_service = this.services.filter(service => service.id == service_id)[0]
 
-            var startTime = this.convert_string_to_date(var_service.offset_time_down)
-            var endTime = this.convert_string_to_date(var_service.offset_time_up)
-            var currentTime = new Date()
+            //получение offset
+            currentOffset = var_service.location_offsets.find(offset => offset.day_of_week === currentDayOfWeek)
 
-            if (currentTime >= startTime && currentTime <= endTime) {
-                return true
+            if (currentOffset) {
+                var startTime = this.convert_string_to_date(currentOffset.offset_time_down)
+                var endTime = this.convert_string_to_date(currentOffset.offset_time_up)
+                this.priority = currentOffset.priority
+
+                if (currentDate >= startTime && currentDate <= endTime) {
+                    return true
+                }
+                else {
+                    this.modal_text = "Данная услуга оказывается с " + currentOffset.offset_time_down + " - " + currentOffset.offset_time_up
+                    return false
+                }
             }
             else {
-                this.modal_text = "Данная услуга оказывается с " + var_service.offset_time_down + " - " + var_service.offset_time_up
+                this.priority = 0
+                this.modal_text = "Данная услуга сегодня не оказывается"
                 return false
             }
         }

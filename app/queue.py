@@ -90,7 +90,7 @@ class Queue:
                     return ticket
                 
     def get_fifo_ticket_priority(self, status, service_pool: list):
-        sorted_tickets = sorted(self.tickets, key=lambda ticket: (ticket.priority, ticket.create_time))
+        sorted_tickets = sorted(self.tickets, key=lambda ticket: (-ticket.priority, ticket.create_time))
         for ticket in sorted_tickets:
             if ticket.status == status:
                 if set([ticket.service]).issubset({service for service in service_pool}):

@@ -24,6 +24,7 @@ const app = Vue.createApp({
             },
             modal_text: "",
             modal: false,
+            priority: 0
         }
     },
     created() {
@@ -62,8 +63,11 @@ const app = Vue.createApp({
 
             this.socket.emit('take_ticket', {
                 service_id: servicce_id,
+                priority: this.priority,
                 room: this.room_id
             })
+
+            this.priority = 0
         },
         show_modal() {
             this.modal = true;
@@ -104,6 +108,7 @@ const app = Vue.createApp({
             if (currentOffset) {
                 var startTime = this.convert_string_to_date(currentOffset.offset_time_down)
                 var endTime = this.convert_string_to_date(currentOffset.offset_time_up)
+                this.priority = currentOffset.priority
 
                 if (currentDate >= startTime && currentDate <= endTime) {
                     return true
@@ -114,6 +119,7 @@ const app = Vue.createApp({
                 }
             }
             else {
+                this.priority = 0
                 this.modal_text = "Данная услуга сегодня не оказывается"
                 return false
             }

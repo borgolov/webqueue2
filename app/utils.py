@@ -124,7 +124,8 @@ def take_ticket(queues: list, data: dict):
     service = db.session.query(Service).filter(Service.id == data["service_id"]).first()
     if interactions['queue'] and service:
         if find_key_dict('location', interactions):
-            ticket = interactions['queue'].reg_ticket(service)
+            print(data["priority"])
+            ticket = interactions['queue'].reg_ticket(service, data["priority"] if data["priority"] else 0)
             resp.update(make_resp_on_ticket(ticket))
             emit('last_ticket', resp)
             emit('state', make_resp_on_queue(interactions['queue']), room=interactions['room'], broadcast=True)
@@ -165,7 +166,7 @@ def call_client(queues: list, data: dict, state: int):
             emit('for_testing', resp, room=request.sid)
             return
         else:
-            ticket = interactions['queue'].get_fifo_ticket(state, service_pool)
+            ticket = interactions['queue'].get_fifo_ticket_priority(state, service_pool)
             if ticket:
                 interactions['queue'].take_service(ticket.id)
                 ticket.set_operator(interactions['operator'].id)
