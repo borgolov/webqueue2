@@ -87,11 +87,13 @@ const app = Vue.createApp({
                 return
             }
 
-            this.show_voices_select()
             this.socket.emit('take_ticket', {
                 service_id: servicce_id,
+                priority: this.priority,
                 room: this.room_id
             })
+
+            this.priority = 0
         },
         show_modal() {
             this.modal = true;
