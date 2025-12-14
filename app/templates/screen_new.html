@@ -49,32 +49,13 @@
                 <div class="modal-background" @click="show_voices_select()"></div>
                 <div class="modal-content">
                     <form class="box" style="background-color: white;">
+                        
                         <div class="field">
-                            <label class="label">voices</label>
                             <div class="control">
-                              <div class="select">
-                                <select v-model="voic">
-                                    <option v-for="item in voices" :key="item" :value="item">{{ '{{ item.name }}' }}</option>
-                                </select>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">voice volume</label>
-                            <div class="control">
-                              <input class="input" type="range" placeholder="Text input" min="0.1" max="1" step="0.1" v-model="voice_settings.volume">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">voice rate</label>
-                            <div class="control">
-                              <input class="input" type="range" placeholder="Text input" min="0.1" max="2" step="0.1" v-model="voice_settings.rate">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">voice pitch</label>
-                            <div class="control">
-                              <input class="input" type="range" placeholder="Text input" min="0.1" max="2" step="0.1" v-model="voice_settings.pitch">
+                                <label class="checkbox">
+                                <input type="checkbox" v-model="is_static_voice">
+                                is static voice
+                                </label>
                             </div>
                         </div>
                         <div class="field">
@@ -89,6 +70,63 @@
                             <label class="label">notification sound signal volume</label>
                             <div class="control">
                               <input class="input" type="range" placeholder="Text input" min="0.1" max="1" step="0.1" v-model="audio_settings.volume">
+                            </div>
+                        </div>
+                        
+                        <div v-if="!is_static_voice">
+                            <div class="field">
+                                <label class="label">voices</label>
+                                <div class="control">
+                                <div class="select">
+                                    <select v-model="voic">
+                                        <option v-for="item in voices" :key="item" :value="item">{{ '{{ item.name }}' }}</option>
+                                    </select>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">voice volume</label>
+                                <div class="control">
+                                <input class="input" type="range" placeholder="Text input" min="0.1" max="1" step="0.1" v-model="voice_settings.volume">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">voice rate</label>
+                                <div class="control">
+                                <input class="input" type="range" placeholder="Text input" min="0.1" max="2" step="0.1" v-model="voice_settings.rate">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">voice pitch</label>
+                                <div class="control">
+                                <input class="input" type="range" placeholder="Text input" min="0.1" max="2" step="0.1" v-model="voice_settings.pitch">
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <div class="field">
+                                <div class="control">
+                                    <label class="checkbox">
+                                    <input type="checkbox" v-model="is_static_voice">
+                                    is static voice
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">notification sound signal volume</label>
+                                <div class="control">
+                                <input class="input" type="range" placeholder="Text input" min="0.1" max="1" step="0.1" v-model="staic_voice_settings.voice_volume">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <label class="checkbox">
+                                    <input type="checkbox" v-model="staic_voice_settings.is_window">
+                                    is window
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </form>
