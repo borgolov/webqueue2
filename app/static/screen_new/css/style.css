@@ -4,12 +4,13 @@
 }
 
 .left {
-    width: 800px;
+    width: 50%;
     background-color: #3e8ed0;
     height: 100vh;
 }
 
 .rigth {
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,8 +28,9 @@
     width: -moz-max-content;
     width: max-content;
     margin: 0 auto;
-    font-size: 80px;
-    color: #1b1574;
+    font-size: 6em;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .silder_screen {
@@ -43,11 +45,42 @@
     width: max-content;
     margin: 0 auto;
     font-size: 200px;
-    color: #f3fd68;
+    color: #3e8ed0;
     padding: 1em;
 }
 
-.modal-content {
+/*.modal-content {
     width: max-content;
+}*/
+
+.rigth-notification {
+    width: 100%;
+    margin: 0 auto;
+    color: #2c3e50;
+}
+
+.text-notification {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 50px;
+    padding: 80px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.text-notification-ticket {
+    font-size: 10em;
+    font-weight: bold;
+}
+
+.text-notification-operator {
+    font-size: 8em;
 }
 
