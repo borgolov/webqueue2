@@ -56,7 +56,7 @@ const app = Vue.createApp({
         },
         take_ticket(servicce_id) {
 
-            if (this.checkTime(servicce_id) == false) {
+            if (this.checkOffset(servicce_id) == false) {
                 this.show_modal()
                 return
             }
@@ -94,7 +94,7 @@ const app = Vue.createApp({
             dateObj.setSeconds(seconds)
             return dateObj
         },
-        checkTime(service_id) {
+        checkOffset(service_id) {
             //получение текущего дня недели
             currentDate = new Date();
             currentDayOfWeek = currentDate.toLocaleString('en-US', { weekday: 'long' })
@@ -108,10 +108,24 @@ const app = Vue.createApp({
             if (currentOffset) {
                 var startTime = this.convert_string_to_date(currentOffset.offset_time_down)
                 var endTime = this.convert_string_to_date(currentOffset.offset_time_up)
+                var count_target = currentOffset.counter ?? 0
                 this.priority = currentOffset.priority
 
                 if (currentDate >= startTime && currentDate <= endTime) {
-                    return true
+
+                    if (count_target == 0) {
+                        return true
+                    }
+                    else {
+                        total = this.stat.services.find(item => Number(item.service.id) == Number(service_id)).service.count_total
+                        if (count_target < total) {
+                            this.modal_text = "Лимит талонов на данную услугу превышен"
+                            return false
+                        }
+                        else {
+                            return true
+                        } 
+                    } 
                 }
                 else {
                     this.modal_text = "Данная услуга оказывается с " + currentOffset.offset_time_down + " - " + currentOffset.offset_time_up
@@ -123,7 +137,7 @@ const app = Vue.createApp({
                 this.modal_text = "Данная услуга сегодня не оказывается"
                 return false
             }
-        }
+        },
     }
 });
 app.mount('#app');

@@ -140,6 +140,7 @@ class ServiceLocationOffset(db.Model):
     day_of_week = db.Column(weekdays, nullable=False)
     offset_time_up = db.Column(db.Time, nullable=False)
     offset_time_down = db.Column(db.Time, nullable=False)
+    counter = db.Column(Integer, default=0)
 
     service = db.relationship('Service', backref=db.backref('location_offsets', lazy='dynamic'))
     location = db.relationship('Location', backref=db.backref('service_offsets', lazy='dynamic'))

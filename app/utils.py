@@ -59,8 +59,17 @@ def make_resp_on_queue(queue: Queue):
     resp['tickets_delayed'] = queue.get_count_tickets(2)
     resp['services'] = []
     for service in db.session.query(Location).filter_by(id=queue.id).first().services:
-        resp['services'].append({'service': {'id': service.id, 'name': service.name, 'count': queue.get_count_tickets_on_service(service.id, 0),
-                                             'count_delay': queue.get_count_tickets_on_service(service.id, 2)}})
+        resp['services'].append(
+            {
+                'service': {
+                    'id': service.id, 
+                    'name': service.name, 
+                    'count': queue.get_count_tickets_on_service(service.id, 0),
+                    'count_delay': queue.get_count_tickets_on_service(service.id, 2),
+                    'count_total': queue.get_count_total_on_service(service.id)
+                }
+            }
+        )
     resp['treatment'] = []
     for ticket in queue.get_treatment_ticket():
         treat = dict()

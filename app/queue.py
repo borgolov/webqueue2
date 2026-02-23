@@ -24,6 +24,14 @@ class Ticket:
         self.service = service.id
         self.service_name = service.name
 
+class TicketCount:
+    def __init__(self, service_id: int):
+        self.service_id = service_id
+        self.increment = 0
+
+    def add_increment(self):
+        self.increment += 1
+
 
 class Queue:
     def __init__(self, location: Location):
@@ -34,6 +42,7 @@ class Queue:
         #self.offset_time_down = location.offset_time_down
         self.tickets = []
         self.increment = 0
+        self.tickets_incremnt = []
 
     def get_count_tickets(self, status: int):
         count = 0
@@ -47,6 +56,13 @@ class Queue:
         for ticket in self.tickets:
             if ticket.service == service_id and ticket.status == status:
                 count += 1
+        return count
+    
+    def get_count_total_on_service(self, service_id: int):
+        count = 0
+        for ticket in self.tickets_incremnt:
+            if ticket.service_id == service_id:
+                count = ticket.increment
         return count
 
     def get_ticket(self, uid):
@@ -63,6 +79,7 @@ class Queue:
         self.increment += 1
         ticket = Ticket(service, self.increment, priority)
         self.tickets.append(ticket)
+        self.add_increment_service(service_id=service.id)
         return ticket
 
     def success_ticket(self, worker_id):
@@ -107,6 +124,7 @@ class Queue:
 
     def reset_queue(self):
         self.tickets = []
+        self.tickets_incremnt = []
         self.increment = 0
 
     def get_treatment_ticket(self):
@@ -123,3 +141,13 @@ class Queue:
             self.is_offset_time = location.is_offset_time
             self.offset_time_up = location.offset_time_up
             self.offset_time_down = location.offset_time_down
+
+    def add_increment_service(self, service_id: int):
+        for ticket in self.tickets_incremnt:
+            if ticket.service_id == service_id:
+                ticket.add_increment()
+                return
+        
+        ticket_count = TicketCount(service_id=service_id)
+        ticket_count.add_increment()
+        self.tickets_incremnt.append(ticket_count)

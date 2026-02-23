@@ -10,7 +10,7 @@ class ServiceLocationOffsetSchema(ma.SQLAlchemyAutoSchema):
         load_instance = True
         include_relationships = True
         include_fk = True
-        fields = ('priority', 'day_of_week', 'offset_time_up', 'offset_time_down')
+        fields = ('priority', 'day_of_week', 'offset_time_up', 'offset_time_down', 'counter')
 
     # Используем Enum для day_of_week
     weekday = fields.Method('get_day_of_week')
